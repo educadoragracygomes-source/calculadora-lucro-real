@@ -410,9 +410,23 @@
     /* ======================================
        SEÇÃO 11: DEPOIMENTOS
     ====================================== */
-    .depoimentos { background: var(--branco); }
+    .depoimentos { background: #f7f4f0; }
 
-    .dep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 840px; margin: 0 auto; }
+    .dep-grid {
+      columns: 2;
+      column-gap: 20px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .dep-grid img {
+      display: block;
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 4px 22px rgba(0,0,0,0.10);
+      margin-bottom: 20px;
+      break-inside: avoid;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
 
     .dep-card {
       background: var(--nude); border-radius: var(--radius);
@@ -611,7 +625,8 @@
       .esp-grid { grid-template-columns: 1fr; text-align: center; }
       .esp-foto, .esp-foto-placeholder { margin: 0 auto; }
       .esp-texto h2 { text-align: center; }
-      .dep-grid, .entregaveis-grid { grid-template-columns: 1fr; }
+      .dep-grid { columns: 1; }
+      .entregaveis-grid { grid-template-columns: 1fr; }
       .entregavel.principal { grid-column: span 1; }
       .culpa-bloco { padding: 22px 18px; }
     }
@@ -1006,12 +1021,12 @@
     <p class="section-sub">Essas histórias vieram direto pelo WhatsApp, depois do diagnóstico.</p>
 
     <div class="dep-grid">
-      <img src="dep-graciela.jpeg" alt="Depoimento Graciela" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.10);">
-      <img src="dep-neia.jpg" alt="Depoimento Néia" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.10);">
-      <img src="dep-debora-2.jpeg" alt="Depoimento Débora" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.10);">
-      <img src="dep-cida.jpeg" alt="Depoimento Cida" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.10);">
-      <img src="dep-debora-1.jpeg" alt="Depoimento Débora 2" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.10);">
-      <img src="dep-vivi.png" alt="Depoimento Vivi" style="width:100%; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.10);">
+      <img src="dep-graciela.jpeg" alt="Depoimento Graciela">
+      <img src="dep-neia.jpg" alt="Depoimento Néia">
+      <img src="dep-debora-2.jpeg" alt="Depoimento Débora">
+      <img src="dep-cida.jpeg" alt="Depoimento Cida">
+      <img src="dep-debora-1.jpeg" alt="Depoimento Débora 2">
+      <img src="dep-vivi.png" alt="Depoimento Vivi">
     </div>
   </div>
 </section>
