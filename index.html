@@ -105,9 +105,19 @@
         radial-gradient(at 15% 30%, rgba(200,182,226,0.14) 0%, transparent 55%),
         radial-gradient(at 85% 70%, rgba(31,122,99,0.3) 0%, transparent 55%);
       color: #fff;
-      padding: 100px 24px 88px;
-      text-align: center;
+      padding: 80px 24px 72px;
     }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-texto { display: flex; flex-direction: column; align-items: flex-start; }
 
     .hero-tag {
       display: inline-block;
@@ -118,16 +128,21 @@
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800;
-      line-height: 1.12; letter-spacing: -0.025em;
-      max-width: 840px; margin: 0 auto 1.5rem;
-      color: #fff;
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 800;
+      line-height: 1.15; letter-spacing: -0.025em;
+      margin: 0 0 1.2rem;
+      color: #fff; text-align: left;
     }
     .hero h1 em { color: var(--lilas); font-style: normal; }
 
+    .hero-sub {
+      font-size: 1rem; color: rgba(255,255,255,0.82);
+      line-height: 1.7; margin: 0 0 1.8rem; text-align: left;
+    }
+
     .hero-pitadas {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-      margin: 0 auto 2.5rem; max-width: 680px;
+      display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px;
+      margin: 0 0 2rem;
     }
     .pitada {
       background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
@@ -135,16 +150,19 @@
       padding: 6px 16px; border-radius: 100px;
     }
 
-    .hero-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+    .hero-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 1.5rem; }
     .hero-cta .btn-verde { animation: pulse 3.5s ease-in-out infinite; }
     .hero-nota { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
 
     .hero-badges {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
-      margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 16px;
+      margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);
     }
     .hero-badge { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
     .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lilas); flex-shrink: 0; }
+
+    .hero-imagem { display: flex; align-items: center; justify-content: center; }
+    .hero-imagem img { width: 100%; max-width: 520px; display: block; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.35)); }
 
     /* ======================================
        SEÇÃO 2: COMPARAÇÃO PRIMÁRIA
@@ -612,6 +630,14 @@
     @media (max-width: 768px) {
       section { padding: 64px 16px; }
       .hero { padding: 72px 16px 64px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-texto { align-items: center; }
+      .hero h1 { text-align: center; }
+      .hero-sub { text-align: center; }
+      .hero-pitadas { justify-content: center; }
+      .hero-cta { align-items: center; }
+      .hero-badges { justify-content: center; }
+      .hero-imagem img { max-width: 420px; }
       .comp-grid, .contas-grid, .gs-grid { grid-template-columns: 1fr; }
       .tab-row { grid-template-columns: 1fr; }
       .tab-cell.antes { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.07); }
@@ -643,32 +669,44 @@
 ========================================== -->
 <section class="hero">
   <div class="container">
-    <div class="hero-tag">Para profissionais da beleza</div>
+    <div class="hero-inner">
 
-    <h1>Você trabalha o mês inteiro, mas ainda não consegue explicar para onde o dinheiro está indo.</h1>
+      <!-- Coluna esquerda: texto -->
+      <div class="hero-texto">
+        <div class="hero-tag">Para profissionais da beleza</div>
 
-    <p style="font-size:1.05rem; color:rgba(255,255,255,0.82); max-width:640px; margin:0 auto 2rem; line-height:1.7; text-align:center;">A Calculadora do Lucro Real mostra exatamente para onde o dinheiro do seu negócio está indo e ajuda você a identificar os vazamentos que impedem seu lucro de crescer.</p>
+        <h1>Você trabalha o mês inteiro, mas ainda não consegue explicar para onde o dinheiro está indo.</h1>
 
-    <div class="hero-pitadas">
-      <span class="pitada">5 números revelam tudo</span>
-      <span class="pitada">Diagnóstico automático</span>
-      <span class="pitada">Clareza Financeira em 30 minutos</span>
-      <span class="pitada">Feita para profissionais da beleza</span>
-    </div>
+        <p class="hero-sub">A Calculadora do Lucro Real mostra exatamente para onde o dinheiro do seu negócio está indo e ajuda você a identificar os vazamentos que impedem seu lucro de crescer.</p>
 
-    <div class="hero-cta">
-      <a href="https://pay.hotmart.com/S105052210H?checkoutMode=10" class="btn btn-verde btn-grande"
-         onclick="fbq('track','InitiateCheckout')">
-        Quero saber para onde vai meu dinheiro
-      </a>
-      <span class="hero-nota">Pagamento único. Acesso imediato após confirmação.</span>
-    </div>
+        <div class="hero-pitadas">
+          <span class="pitada">5 números revelam tudo</span>
+          <span class="pitada">Diagnóstico automático</span>
+          <span class="pitada">Clareza Financeira em 30 minutos</span>
+          <span class="pitada">Feita para profissionais da beleza</span>
+        </div>
 
-    <div class="hero-badges">
-      <span class="hero-badge"><span class="hero-badge-dot"></span>100% online e automática</span>
-      <span class="hero-badge"><span class="hero-badge-dot"></span>Simples e prática</span>
-      <span class="hero-badge"><span class="hero-badge-dot"></span>Seus dados protegidos</span>
-      <span class="hero-badge"><span class="hero-badge-dot"></span>Feita para mulheres reais</span>
+        <div class="hero-cta">
+          <a href="https://pay.hotmart.com/S105052210H?checkoutMode=10" class="btn btn-verde btn-grande"
+             onclick="fbq('track','InitiateCheckout')">
+            Quero saber para onde vai meu dinheiro
+          </a>
+          <span class="hero-nota">Pagamento único. Acesso imediato após confirmação.</span>
+        </div>
+
+        <div class="hero-badges">
+          <span class="hero-badge"><span class="hero-badge-dot"></span>100% online e automática</span>
+          <span class="hero-badge"><span class="hero-badge-dot"></span>Simples e prática</span>
+          <span class="hero-badge"><span class="hero-badge-dot"></span>Seus dados protegidos</span>
+          <span class="hero-badge"><span class="hero-badge-dot"></span>Feita para mulheres reais</span>
+        </div>
+      </div>
+
+      <!-- Coluna direita: imagem mockup -->
+      <div class="hero-imagem">
+        <img src="hero-mockup.png" alt="Calculadora do Lucro Real no computador e celular">
+      </div>
+
     </div>
   </div>
 </section>
