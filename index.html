@@ -105,19 +105,18 @@
         radial-gradient(at 15% 30%, rgba(200,182,226,0.14) 0%, transparent 55%),
         radial-gradient(at 85% 70%, rgba(31,122,99,0.3) 0%, transparent 55%);
       color: #fff;
-      padding: 80px 24px 72px;
+      padding: 48px 24px 44px;
     }
 
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      max-width: 1100px;
+      max-width: 860px;
       margin: 0 auto;
     }
 
-    .hero-texto { display: flex; flex-direction: column; align-items: flex-start; }
+    .hero-texto { display: flex; flex-direction: column; align-items: center; width: 100%; }
 
     .hero-tag {
       display: inline-block;
@@ -128,21 +127,22 @@
     }
 
     .hero h1 {
-      font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
       line-height: 1.15; letter-spacing: -0.025em;
       margin: 0 0 1.2rem;
-      color: #fff; text-align: left;
+      color: #fff; text-align: center;
     }
     .hero h1 em { color: var(--lilas); font-style: normal; }
 
     .hero-sub {
-      font-size: 1rem; color: rgba(255,255,255,0.82);
-      line-height: 1.7; margin: 0 0 1.8rem; text-align: left;
+      font-size: 1.05rem; color: rgba(255,255,255,0.82);
+      line-height: 1.7; margin: 0 0 0.6rem; text-align: center;
+      max-width: 680px;
     }
 
     .hero-pitadas {
-      display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px;
-      margin: 0 0 2rem;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      margin: 0 0 1.2rem;
     }
     .pitada {
       background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
@@ -150,19 +150,23 @@
       padding: 6px 16px; border-radius: 100px;
     }
 
-    .hero-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 1.5rem; }
+    .hero-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
     .hero-cta .btn-verde { animation: pulse 3.5s ease-in-out infinite; }
     .hero-nota { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
 
     .hero-badges {
-      display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 16px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
       margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);
     }
     .hero-badge { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
     .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lilas); flex-shrink: 0; }
 
     .hero-imagem { display: flex; align-items: center; justify-content: center; }
-    .hero-imagem img { width: 100%; max-width: 520px; display: block; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.35)); }
+    .hero-imagem img { width: 100%; max-width: 100%; display: block; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.35)); }
+    .hero-imagem-mobile { display: flex; justify-content: center; margin: 0.4rem 0 1.2rem; } /* visível no desktop */
+    .hero-imagem-mobile img { max-height: 400px; width: auto; max-width: 100%; }
+    .hero-imagem-desktop { display: none; } /* coluna lateral removida */
+    .hero-cta .btn { min-width: 440px; font-size: 1.25rem; padding: 22px 64px; }
 
     /* ======================================
        SEÇÃO 2: COMPARAÇÃO PRIMÁRIA
@@ -452,7 +456,7 @@
       overflow: hidden; box-shadow: var(--shadow);
     }
     /* INSTRUÇÃO: para usar os screenshots reais, substitua o conteúdo .dep-bubble por uma tag
-       <img src="dep-graciela.jpg" alt="Depoimento Graciela" style="width:100%">
+       <img src="dep-graciela.jpeg" alt="Depoimento Graciela" style="width:100%">
        e salve as imagens na mesma pasta que este arquivo HTML. */
     .dep-bubble {
       padding: 20px 22px; background: #fff;
@@ -629,15 +633,17 @@
     /* RESPONSIVO */
     @media (max-width: 768px) {
       section { padding: 64px 16px; }
-      .hero { padding: 72px 16px 64px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero { padding: 48px 16px 40px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-imagem-desktop { display: none; }
+      .hero-imagem-mobile { display: flex; justify-content: center; margin: 1rem 0; }
+      .hero-imagem-mobile img { max-height: 200px; width: auto; max-width: 100%; display: block; }
       .hero-texto { align-items: center; }
-      .hero h1 { text-align: center; }
-      .hero-sub { text-align: center; }
-      .hero-pitadas { justify-content: center; }
-      .hero-cta { align-items: center; }
-      .hero-badges { justify-content: center; }
-      .hero-imagem img { max-width: 420px; }
+      .hero h1 { text-align: center; font-size: 1.6rem; }
+      .hero-sub { text-align: center; font-size: 0.92rem; margin-bottom: 0.5rem; }
+      .hero-pitadas { display: flex; flex-wrap: wrap; justify-content: center; order: 2; margin: 1rem 0 0; }
+      .hero-cta { align-items: center; order: 1; }
+      .hero-badges { display: none; }
       .comp-grid, .contas-grid, .gs-grid { grid-template-columns: 1fr; }
       .tab-row { grid-template-columns: 1fr; }
       .tab-cell.antes { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.07); }
@@ -679,6 +685,11 @@
 
         <p class="hero-sub">A Calculadora do Lucro Real mostra exatamente para onde o dinheiro do seu negócio está indo e ajuda você a identificar os vazamentos que impedem seu lucro de crescer.</p>
 
+        <!-- Imagem apenas no mobile (aparece entre subheadline e botão) -->
+        <div class="hero-imagem hero-imagem-mobile">
+          <img src="hero-mockup.png" alt="Calculadora do Lucro Real no computador e celular">
+        </div>
+
         <div class="hero-pitadas">
           <span class="pitada">5 números revelam tudo</span>
           <span class="pitada">Diagnóstico automático</span>
@@ -702,8 +713,8 @@
         </div>
       </div>
 
-      <!-- Coluna direita: imagem mockup -->
-      <div class="hero-imagem">
+      <!-- Coluna direita: imagem mockup (só desktop) -->
+      <div class="hero-imagem hero-imagem-desktop">
         <img src="hero-mockup.png" alt="Calculadora do Lucro Real no computador e celular">
       </div>
 
