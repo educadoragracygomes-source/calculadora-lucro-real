@@ -105,7 +105,7 @@
         radial-gradient(at 15% 30%, rgba(200,182,226,0.14) 0%, transparent 55%),
         radial-gradient(at 85% 70%, rgba(31,122,99,0.3) 0%, transparent 55%);
       color: #fff;
-      padding: 48px 24px 44px;
+      padding: 36px 24px 40px;
     }
 
     .hero-inner {
@@ -123,27 +123,28 @@
       background: rgba(200,182,226,0.18); border: 1px solid rgba(200,182,226,0.35);
       color: var(--lilas); font-size: 0.75rem; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 6px 18px; border-radius: 100px; margin-bottom: 1.5rem;
+      padding: 6px 18px; border-radius: 100px; margin-bottom: 1rem;
     }
 
     .hero h1 {
       font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
       line-height: 1.15; letter-spacing: -0.025em;
-      margin: 0 0 1.2rem;
+      margin: 0 0 0.6rem;
       color: #fff; text-align: center;
     }
     .hero h1 em { color: var(--lilas); font-style: normal; }
 
     .hero-sub {
       font-size: 1.05rem; color: rgba(255,255,255,0.82);
-      line-height: 1.7; margin: 0 0 0.6rem; text-align: center;
+      line-height: 1.7; margin: 0 0 0.3rem; text-align: center;
       max-width: 680px;
     }
 
     .hero-pitadas {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-      margin: 0 0 1.2rem;
+      display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;
+      margin: 0 0 0.8rem;
     }
+    .hero-pitadas .pitada:first-child { display: none; }
     .pitada {
       background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
       color: rgba(255,255,255,0.85); font-size: 0.82rem; font-weight: 500;
@@ -163,8 +164,8 @@
 
     .hero-imagem { display: flex; align-items: center; justify-content: center; }
     .hero-imagem img { width: 100%; max-width: 100%; display: block; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.35)); }
-    .hero-imagem-mobile { display: flex; justify-content: center; margin: 0.2rem 0 1rem; } /* visível no desktop */
-    .hero-imagem-mobile img { width: 100%; height: auto; }
+    .hero-imagem-mobile { display: flex; justify-content: center; margin: 0.2rem 0 0.8rem; } /* visível no desktop */
+    .hero-imagem-mobile img { max-height: 340px; width: auto; max-width: 100%; }
     .hero-imagem-desktop { display: none; } /* coluna lateral removida */
     .hero-cta .btn { min-width: 440px; font-size: 1.25rem; padding: 22px 64px; }
 
@@ -637,12 +638,13 @@
       .hero-inner { grid-template-columns: 1fr; }
       .hero-imagem-desktop { display: none; }
       .hero-imagem-mobile { display: flex; justify-content: center; margin: 0.3rem 0 0.8rem; }
-      .hero-imagem-mobile img { width: 100%; height: auto; display: block; }
+      .hero-imagem-mobile img { max-height: 260px; width: auto; max-width: 100%; display: block; }
       .hero-cta .btn { min-width: auto; width: 90%; max-width: 360px; font-size: 1rem; padding: 16px 24px; }
       .hero-texto { align-items: center; }
       .hero h1 { text-align: center; font-size: 1.6rem; }
       .hero-sub { text-align: center; font-size: 0.92rem; margin-bottom: 0.5rem; }
       .hero-pitadas { display: flex; flex-wrap: wrap; justify-content: center; order: 2; margin: 1rem 0 0; }
+      .hero-pitadas .pitada:first-child { display: inline-block; }
       .hero-cta { align-items: center; order: 1; }
       .hero-badges { display: none; }
       .comp-grid, .contas-grid, .gs-grid { grid-template-columns: 1fr; }
@@ -1137,7 +1139,7 @@
         <div class="entregavel-ico">🎁</div>
         <div class="entregavel-info">
           <span class="entregavel-badge">Bônus exclusivo</span>
-          <div class="entregavel-nome">Kit Resposta Desconto</div>
+          <div class="entregavel-nome">Kit Anti-Desconto</div>
           <div class="entregavel-desc">Como responder pedidos de desconto sem sacrificar seu lucro. Respostas prontas que mantêm o cliente e protegem o negócio.</div>
           <div class="entregavel-valor">Valor: <s>R$ 47</s></div>
         </div>
@@ -1203,7 +1205,7 @@
         <span class="resumo-item-val"><s>R$ 67</s></span>
       </div>
       <div class="resumo-item">
-        <span class="resumo-item-nome">🎁 Kit Resposta Desconto</span>
+        <span class="resumo-item-nome">🎁 Kit Anti-Desconto</span>
         <span class="resumo-item-val"><s>R$ 47</s></span>
       </div>
       <div class="resumo-item">
