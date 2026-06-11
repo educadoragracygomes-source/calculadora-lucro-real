@@ -740,7 +740,7 @@
       display: grid;
       grid-template-columns: 1.4fr 0.6fr;
       gap: 56px;
-      align-items: center;
+      align-items: start;
     }
     .hero-h1 {
       font-family: 'Nunito', sans-serif;
@@ -847,8 +847,11 @@
     }
     .hero-nota { font-size: 0.73rem; color: #888; }
     .trust-badges {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 10px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,0.08);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      max-width: 1080px; margin: 0 auto;
+      padding: 22px 32px 0;
+      border-top: 1px solid rgba(0,0,0,0.1);
     }
     .trust-badge { display: flex; align-items: flex-start; gap: 8px; }
     .trust-check {
@@ -945,7 +948,7 @@
       .hero-intro  { order: 3; margin-bottom: 16px; padding-bottom: 0; border-bottom: none; }
       .hero-cta    { order: 4; margin-bottom: 20px; }
       .beneficios  { order: 5; gap: 12px; margin-bottom: 22px; }
-      .trust-badges { order: 6; grid-template-columns: 1fr; gap: 8px; }
+      .trust-badges { grid-template-columns: 1fr 1fr; gap: 8px; padding: 14px 16px 0; }
       .hero-mockup img { width: 100%; max-width: 480px; margin: 0 auto; }
       .hero-intro-titulo { font-size: 0.95rem; }
       .beneficio-ico { width: 38px; height: 38px; }
@@ -1058,195 +1061,31 @@
         <span class="hero-nota">Pagamento único. Acesso imediato após confirmação.</span>
       </div>
 
-      <div class="trust-badges">
-        <div class="trust-badge">
-          <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
-          <span class="trust-texto">Diagnóstico automático do negócio</span>
-        </div>
-        <div class="trust-badge">
-          <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
-          <span class="trust-texto">Clareza financeira em 30 minutos</span>
-        </div>
-        <div class="trust-badge">
-          <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
-          <span class="trust-texto">Feita para profissionais da beleza</span>
-        </div>
-        <div class="trust-badge">
-          <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
-          <span class="trust-texto">Simples, rápida e prática</span>
-        </div>
-      </div>
-
     </div>
 
   </div>
-</section>
 
-<!-- ==========================================
-     SEÇÃO 2: DEPOIMENTOS — CARROSSEL
-========================================== -->
-<section class="depoimentos">
-  <div class="container">
-
-    <span class="section-tag">Resultados Reais</span>
-    <h2 class="section-h2">Elas não preencheram uma calculadora, entenderam por que o dinheiro nunca sobrava.</h2>
-    <p class="section-sub">Estas histórias vieram direto pelo WhatsApp após o preenchimento da Calculadora do Lucro Real.</p>
-
-    <div class="carrossel-wrapper">
-
-      <button class="seta-car seta-prev" id="btnPrev" aria-label="Depoimento anterior">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-
-      <div class="carrossel-viewport">
-        <div class="carrossel-track" id="carrosselTrack">
-
-          <div class="dep-card">
-            <div class="dep-card-topo"></div>
-            <div class="dep-card-inner">
-              <img src="dep-graciela.jpeg" alt="Depoimento Graciela">
-            </div>
-          </div>
-
-          <div class="dep-card">
-            <div class="dep-card-topo"></div>
-            <div class="dep-card-inner">
-              <img src="dep-neia.jpg" alt="Depoimento Néia">
-            </div>
-          </div>
-
-          <div class="dep-card">
-            <div class="dep-card-topo"></div>
-            <div class="dep-card-inner">
-              <img src="dep-debora-2.jpeg" alt="Depoimento Débora">
-            </div>
-          </div>
-
-          <div class="dep-card">
-            <div class="dep-card-topo"></div>
-            <div class="dep-card-inner">
-              <img src="dep-cida.jpeg" alt="Depoimento Cida">
-            </div>
-          </div>
-
-          <div class="dep-card">
-            <div class="dep-card-topo"></div>
-            <div class="dep-card-inner">
-              <img src="dep-debora-1.jpeg" alt="Depoimento Débora 2">
-            </div>
-          </div>
-
-          <div class="dep-card">
-            <div class="dep-card-topo"></div>
-            <div class="dep-card-inner">
-              <img src="dep-vivi.png" alt="Depoimento Vivi">
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <button class="seta-car seta-next" id="btnNext" aria-label="Próximo depoimento">
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-
+  <!-- 4 bullets abaixo do grid — só PC (mobile: 2 colunas) -->
+  <div class="trust-badges">
+    <div class="trust-badge">
+      <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+      <span class="trust-texto">Diagnóstico automático do negócio</span>
     </div>
-
-    <div class="dots-car" id="dotsCar"></div>
-    <div class="carrossel-contador" id="contadorCar"></div>
-    <p class="swipe-hint">← Deslize para ver mais depoimentos →</p>
-
+    <div class="trust-badge">
+      <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+      <span class="trust-texto">Clareza financeira em 30 minutos</span>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+      <span class="trust-texto">Feita para profissionais da beleza</span>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+      <span class="trust-texto">Simples, rápida e prática</span>
+    </div>
   </div>
+
 </section>
-
-<script>
-(function () {
-  var track    = document.getElementById('carrosselTrack');
-  var btnPrev  = document.getElementById('btnPrev');
-  var btnNext  = document.getElementById('btnNext');
-  var dotsWrap = document.getElementById('dotsCar');
-  var contadorEl = document.getElementById('contadorCar');
-  if (!track) return;
-  var cards = track.querySelectorAll('.dep-card');
-  var total = cards.length;
-  var atual = 0;
-
-  cards.forEach(function(_, i) {
-    var d = document.createElement('button');
-    d.className = 'dot-car' + (i === 0 ? ' ativo' : '');
-    d.setAttribute('aria-label', 'Depoimento ' + (i + 1));
-    d.addEventListener('click', function() { ir(i); });
-    dotsWrap.appendChild(d);
-  });
-
-  function atualizarUI() {
-    track.style.transform = 'translateX(-' + (atual * 100) + '%)';
-    dotsWrap.querySelectorAll('.dot-car').forEach(function(d, i) {
-      d.classList.toggle('ativo', i === atual);
-    });
-    btnPrev.classList.toggle('desabilitada', atual === 0);
-    btnNext.classList.toggle('desabilitada', atual === total - 1);
-    contadorEl.innerHTML = '<strong>' + (atual + 1) + '</strong> de <strong>' + total + '</strong>';
-  }
-
-  function ir(idx) {
-    atual = Math.max(0, Math.min(idx, total - 1));
-    atualizarUI();
-  }
-
-  btnPrev.addEventListener('click', function() { ir(atual - 1); });
-  btnNext.addEventListener('click', function() { ir(atual + 1); });
-
-  var touchStartX = 0, touchStartY = 0;
-  var isDragging = false, dragStartX = 0;
-
-  track.addEventListener('touchstart', function(e) {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-
-  track.addEventListener('touchend', function(e) {
-    var dx = e.changedTouches[0].clientX - touchStartX;
-    var dy = e.changedTouches[0].clientY - touchStartY;
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 44) {
-      ir(dx < 0 ? atual + 1 : atual - 1);
-    }
-  }, { passive: true });
-
-  track.addEventListener('mousedown', function(e) {
-    isDragging = true;
-    dragStartX = e.clientX;
-    track.style.transition = 'none';
-  });
-
-  window.addEventListener('mousemove', function(e) {
-    if (!isDragging) return;
-    var diff = e.clientX - dragStartX;
-    var base = -(atual * 100);
-    var percent = (diff / track.parentElement.offsetWidth) * 100;
-    track.style.transform = 'translateX(' + (base + percent) + '%)';
-  });
-
-  window.addEventListener('mouseup', function(e) {
-    if (!isDragging) return;
-    isDragging = false;
-    track.style.transition = '';
-    var diff = e.clientX - dragStartX;
-    if (Math.abs(diff) > 60) {
-      ir(diff < 0 ? atual + 1 : atual - 1);
-    } else {
-      atualizarUI();
-    }
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft')  ir(atual - 1);
-    if (e.key === 'ArrowRight') ir(atual + 1);
-  });
-
-  atualizarUI();
-})();
-</script>
 
 <!-- ==========================================
      SEÇÃO 3: COMPARAÇÃO PRIMÁRIA
@@ -1528,6 +1367,172 @@
     </div>
   </div>
 </section>
+
+<!-- ==========================================
+     SEÇÃO 8B: DEPOIMENTOS — CARROSSEL
+========================================== -->
+<section class="depoimentos">
+  <div class="container">
+
+    <span class="section-tag">Resultados Reais</span>
+    <h2 class="section-h2">Elas não preencheram uma calculadora, entenderam por que o dinheiro nunca sobrava.</h2>
+    <p class="section-sub">Estas histórias vieram direto pelo WhatsApp após o preenchimento da Calculadora do Lucro Real.</p>
+
+    <div class="carrossel-wrapper">
+
+      <button class="seta-car seta-prev" id="btnPrev" aria-label="Depoimento anterior">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="carrossel-viewport">
+        <div class="carrossel-track" id="carrosselTrack">
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-graciela.jpeg" alt="Depoimento Graciela">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-neia.jpg" alt="Depoimento Néia">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-debora-2.jpeg" alt="Depoimento Débora">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-cida.jpeg" alt="Depoimento Cida">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-debora-1.jpeg" alt="Depoimento Débora 2">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-vivi.png" alt="Depoimento Vivi">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="seta-car seta-next" id="btnNext" aria-label="Próximo depoimento">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+    </div>
+
+    <div class="dots-car" id="dotsCar"></div>
+    <div class="carrossel-contador" id="contadorCar"></div>
+    <p class="swipe-hint">← Deslize para ver mais depoimentos →</p>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var track    = document.getElementById('carrosselTrack');
+  var btnPrev  = document.getElementById('btnPrev');
+  var btnNext  = document.getElementById('btnNext');
+  var dotsWrap = document.getElementById('dotsCar');
+  var contadorEl = document.getElementById('contadorCar');
+  if (!track) return;
+  var cards = track.querySelectorAll('.dep-card');
+  var total = cards.length;
+  var atual = 0;
+
+  cards.forEach(function(_, i) {
+    var d = document.createElement('button');
+    d.className = 'dot-car' + (i === 0 ? ' ativo' : '');
+    d.setAttribute('aria-label', 'Depoimento ' + (i + 1));
+    d.addEventListener('click', function() { ir(i); });
+    dotsWrap.appendChild(d);
+  });
+
+  function atualizarUI() {
+    track.style.transform = 'translateX(-' + (atual * 100) + '%)';
+    dotsWrap.querySelectorAll('.dot-car').forEach(function(d, i) {
+      d.classList.toggle('ativo', i === atual);
+    });
+    btnPrev.classList.toggle('desabilitada', atual === 0);
+    btnNext.classList.toggle('desabilitada', atual === total - 1);
+    contadorEl.innerHTML = '<strong>' + (atual + 1) + '</strong> de <strong>' + total + '</strong>';
+  }
+
+  function ir(idx) {
+    atual = Math.max(0, Math.min(idx, total - 1));
+    atualizarUI();
+  }
+
+  btnPrev.addEventListener('click', function() { ir(atual - 1); });
+  btnNext.addEventListener('click', function() { ir(atual + 1); });
+
+  var touchStartX = 0, touchStartY = 0;
+  var isDragging = false, dragStartX = 0;
+
+  track.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  track.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    var dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 44) {
+      ir(dx < 0 ? atual + 1 : atual - 1);
+    }
+  }, { passive: true });
+
+  track.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    dragStartX = e.clientX;
+    track.style.transition = 'none';
+  });
+
+  window.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    var diff = e.clientX - dragStartX;
+    var base = -(atual * 100);
+    var percent = (diff / track.parentElement.offsetWidth) * 100;
+    track.style.transform = 'translateX(' + (base + percent) + '%)';
+  });
+
+  window.addEventListener('mouseup', function(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    track.style.transition = '';
+    var diff = e.clientX - dragStartX;
+    if (Math.abs(diff) > 60) {
+      ir(diff < 0 ? atual + 1 : atual - 1);
+    } else {
+      atualizarUI();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft')  ir(atual - 1);
+    if (e.key === 'ArrowRight') ir(atual + 1);
+  });
+
+  atualizarUI();
+})();
+</script>
 
 <!-- ==========================================
      SEÇÃO 9: DEMONSTRAÇÃO
@@ -1965,8 +1970,8 @@
     if (!footer) return;
     const ordem = [
       '.hero',
-      '.demo',
       '.depoimentos',
+      '.demo',
       '.entregaveis',
       '.comparacao',
       '.resumo',
