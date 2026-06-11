@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -669,64 +669,579 @@
       .hero h1 { font-size: 1.75rem; }
       .btn { width: 100%; justify-content: center; }
     }
+
+    /* ====================================================
+       NOVO HERO — BARRA SUPERIOR + LAYOUT 2 COLUNAS
+    ==================================================== */
+    .top-bar {
+      background: #14503c;
+      padding: 10px 24px;
+      text-align: center;
+    }
+    .top-bar p {
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .top-bar strong { color: #e8d49a; font-weight: 700; }
+
+    .produto-nome-area {
+      background: #f5f0eb;
+      padding: 22px 24px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .produto-selo {
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1f7a63;
+    }
+    .produto-logotipo {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.5rem;
+      font-weight: 600;
+      color: #14503c;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.4;
+    }
+    .produto-detalhe {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 3px;
+    }
+    .produto-linha { width: 28px; height: 1px; background: #b8995a; opacity: 0.45; }
+    .produto-estrela { font-size: 0.45rem; color: #b8995a; letter-spacing: 5px; }
+
+    /* Override hero — fundo bege, sem verde escuro */
+    .hero {
+      background: #f5f0eb;
+      background-image: none;
+      color: #111111;
+      padding: 40px 32px 60px;
+    }
+    .hero-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .hero-h1 {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: #111111;
+      margin-bottom: 28px;
+    }
+    .destaque-verde {
+      color: #14503c;
+      text-decoration: underline;
+      text-decoration-color: #1f7a63;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 2px;
+    }
+    .destaque-dourado {
+      color: #14503c;
+      text-decoration: underline;
+      text-decoration-color: #1f7a63;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 2px;
+    }
+    .hero-mockup img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 16px 40px rgba(0,0,0,0.12));
+    }
+    .hero-intro {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .hero-intro-titulo {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #14503c;
+      margin-bottom: 3px;
+    }
+    .hero-intro-sub {
+      font-size: 0.87rem;
+      color: #1f7a63;
+      font-weight: 600;
+      font-style: italic;
+    }
+    .beneficios {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .beneficio {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .beneficio-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: #e8f5f0;
+      border: 1px solid rgba(31,122,99,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .beneficio-ico svg {
+      width: 20px; height: 20px;
+      stroke: #14503c; fill: none;
+      stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .beneficio-conteudo { padding-top: 2px; }
+    .beneficio-titulo {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem; font-weight: 800; color: #111111; margin-bottom: 1px;
+    }
+    .beneficio-desc { font-size: 0.8rem; line-height: 1.55; color: #4a4a4a; }
+
+    @keyframes pulso-btn {
+      0%   { box-shadow: 0 0 0 0 rgba(20,80,60,0.5), 0 6px 20px rgba(20,80,60,0.3); }
+      65%  { box-shadow: 0 0 0 16px rgba(20,80,60,0), 0 6px 20px rgba(20,80,60,0.3); }
+      100% { box-shadow: 0 0 0 0 rgba(20,80,60,0), 0 6px 20px rgba(20,80,60,0.3); }
+    }
+    .hero-cta {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 10px; margin-bottom: 22px;
+    }
+    .btn-cta {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; background: #14503c; color: #fff;
+      font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 20px 28px; border-radius: 10px; border: none;
+      cursor: pointer; text-decoration: none;
+      animation: pulso-btn 2.2s ease-out infinite;
+    }
+    .btn-cta svg {
+      width: 18px; height: 18px; stroke: #fff; fill: none;
+      stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
+    }
+    .hero-nota { font-size: 0.73rem; color: #888; }
+    .trust-badges {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    .trust-badge { display: flex; align-items: flex-start; gap: 8px; }
+    .trust-check {
+      width: 18px; height: 18px; border-radius: 5px;
+      background: #e8f5f0; border: 1px solid rgba(31,122,99,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .trust-check svg {
+      width: 9px; height: 9px; stroke: #14503c; fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .trust-texto { font-size: 0.75rem; color: #4a4a4a; font-weight: 500; line-height: 1.45; }
+
+    /* ====================================================
+       CARROSSEL DE DEPOIMENTOS
+    ==================================================== */
+    .depoimentos { background: #f7f4f0; }
+
+    .carrossel-wrapper { position: relative; padding: 0 56px; }
+    .carrossel-viewport { overflow: hidden; border-radius: 24px; }
+    .carrossel-track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .dep-card {
+      flex: 0 0 100%; background: #ffffff; border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+      border: 1px solid rgba(20,80,60,0.08);
+      overflow: hidden; cursor: grab; user-select: none;
+    }
+    .dep-card:active { cursor: grabbing; }
+    .dep-card-topo { height: 4px; background: linear-gradient(90deg, #1f7a63, #b8995a); }
+    .dep-card-inner {
+      padding: 28px; display: flex; align-items: center;
+      justify-content: center; min-height: 200px;
+    }
+    .dep-card img {
+      width: 100%; max-width: 560px; border-radius: 14px;
+      display: block; margin: 0 auto;
+      border: 1px solid rgba(0,0,0,0.06); pointer-events: none;
+    }
+    .seta-car {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #ffffff; border: 1.5px solid rgba(20,80,60,0.18);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      z-index: 10; transition: all 0.2s ease; padding: 0;
+    }
+    .seta-car:hover { background: #14503c; border-color: #14503c; }
+    .seta-car:hover svg { stroke: #fff; }
+    .seta-car:active { transform: translateY(-50%) scale(0.94); }
+    .seta-car svg {
+      width: 18px; height: 18px; stroke: #14503c; fill: none;
+      stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+      transition: stroke 0.2s;
+    }
+    .seta-prev { left: 0; }
+    .seta-next { right: 0; }
+    .seta-car.desabilitada { opacity: 0.3; pointer-events: none; }
+    .dots-car {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-top: 28px;
+    }
+    .dot-car {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(20,80,60,0.2);
+      cursor: pointer; transition: all 0.3s ease; border: none; padding: 0;
+    }
+    .dot-car.ativo { background: #14503c; transform: scale(1.3); }
+    .dot-car:hover:not(.ativo) { background: rgba(20,80,60,0.45); }
+    .carrossel-contador {
+      text-align: center; font-size: 0.8rem; color: #4a4a4a;
+      margin-top: 10px; letter-spacing: 0.05em;
+    }
+    .carrossel-contador strong { color: #14503c; font-weight: 700; }
+    .swipe-hint {
+      display: none; text-align: center;
+      font-size: 0.74rem; color: #4a4a4a; margin-top: 16px;
+    }
+
+    /* Hero + carousel — mobile */
+    @media (max-width: 768px) {
+      .top-bar p { font-size: 0.78rem; }
+      .produto-nome-area { padding: 18px 16px 0; }
+      .produto-logotipo { font-size: 0.5rem; }
+      .hero { padding: 28px 16px 48px; }
+      .hero-container { display: flex; flex-direction: column; gap: 0; }
+      .hero-esq, .hero-dir { display: contents; }
+      .hero-h1     { order: 1; font-size: 1.75rem; margin-bottom: 16px; text-align: center; }
+      .hero-mockup { order: 2; margin-bottom: 20px; }
+      .hero-intro  { order: 3; margin-bottom: 16px; padding-bottom: 0; border-bottom: none; }
+      .hero-cta    { order: 4; margin-bottom: 20px; }
+      .beneficios  { order: 5; gap: 12px; margin-bottom: 22px; }
+      .trust-badges { order: 6; grid-template-columns: 1fr; gap: 8px; }
+      .hero-mockup img { width: 100%; max-width: 480px; margin: 0 auto; }
+      .hero-intro-titulo { font-size: 0.95rem; }
+      .beneficio-ico { width: 38px; height: 38px; }
+      .beneficio-ico svg { width: 17px; height: 17px; }
+      .beneficio-titulo { font-size: 0.84rem; }
+      .beneficio-desc { font-size: 0.77rem; }
+      .btn-cta { font-size: 0.88rem; padding: 17px 20px; }
+      .carrossel-wrapper { padding: 0; }
+      .seta-car { display: none; }
+      .dep-card-inner { padding: 16px; }
+      .swipe-hint { display: block; }
+    }
   </style>
 </head>
 <body>
 
 <!-- ==========================================
-     SEÇÃO 1: HERO
+     BARRA SUPERIOR + NOME DO PRODUTO + HERO
 ========================================== -->
+
+<!-- Barra superior -->
+<div class="top-bar">
+  <p>Quer continuar trabalhando muito sem ver o resultado ou quer <strong>ter mais dinheiro no bolso?</strong></p>
+</div>
+
+<!-- Nome do produto -->
+<div class="produto-nome-area">
+  <span class="produto-selo">Para Profissionais da Beleza</span>
+  <span class="produto-logotipo">Calculadora do Lucro Real</span>
+  <div class="produto-detalhe">
+    <div class="produto-linha"></div>
+    <span class="produto-estrela">✦ ✦ ✦</span>
+    <div class="produto-linha"></div>
+  </div>
+</div>
+
+<!-- Hero principal -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-inner">
+  <div class="hero-container">
 
-      <!-- Coluna esquerda: texto -->
-      <div class="hero-texto">
-        <div class="hero-tag">Para profissionais da beleza</div>
+    <!-- Coluna esquerda: headline + mockup -->
+    <div class="hero-esq">
+      <h1 class="hero-h1">
+        Entenda o que está <span class="destaque-verde">roubando o seu lucro</span> e tenha <span class="destaque-dourado">mais dinheiro no bolso.</span>
+      </h1>
+      <div class="hero-mockup">
+        <img src="hero-mockup2.png" alt="Calculadora do Lucro Real no computador e celular">
+      </div>
+    </div>
 
-        <h1>Você trabalha o mês inteiro, mas ainda não consegue explicar para onde o dinheiro está indo.</h1>
+    <!-- Coluna direita: intro + benefícios + CTA -->
+    <div class="hero-dir">
 
-        <p class="hero-sub">A Calculadora do Lucro Real mostra exatamente para onde o dinheiro do seu negócio está indo e ajuda você a identificar os vazamentos que impedem seu lucro de crescer.</p>
-
-        <!-- Imagem apenas no mobile (aparece entre subheadline e botão) -->
-        <div class="hero-imagem hero-imagem-mobile">
-          <img src="hero-mockup.png" alt="Calculadora do Lucro Real no computador e celular">
-        </div>
-
-        <div class="hero-pitadas">
-          <span class="pitada">5 números revelam tudo</span>
-          <span class="pitada">Diagnóstico automático</span>
-          <span class="pitada">Clareza Financeira em 30 minutos</span>
-          <span class="pitada">Feita para profissionais da beleza</span>
-        </div>
-
-        <div class="hero-cta">
-          <a href="https://pay.hotmart.com/S105052210H?checkoutMode=10" class="btn btn-verde btn-grande"
-             onclick="fbq('track','InitiateCheckout')">
-            Quero saber para onde vai meu dinheiro
-          </a>
-          <span class="hero-nota">Pagamento único. Acesso imediato após confirmação.</span>
-        </div>
-
-        <div class="hero-badges">
-          <span class="hero-badge"><span class="hero-badge-dot"></span>100% online e automática</span>
-          <span class="hero-badge"><span class="hero-badge-dot"></span>Simples e prática</span>
-          <span class="hero-badge"><span class="hero-badge-dot"></span>Seus dados protegidos</span>
-          <span class="hero-badge"><span class="hero-badge-dot"></span>Feita para mulheres reais</span>
-        </div>
+      <div class="hero-intro">
+        <p class="hero-intro-titulo">Você cuida das suas clientes.</p>
+        <p class="hero-intro-sub"><strong>Nós ajudamos você a colocar mais dinheiro no bolso.</strong></p>
       </div>
 
-      <!-- Coluna direita: imagem mockup (só desktop) -->
-      <div class="hero-imagem hero-imagem-desktop">
-        <img src="hero-mockup.png" alt="Calculadora do Lucro Real no computador e celular">
+      <div class="beneficios">
+
+        <div class="beneficio">
+          <div class="beneficio-ico">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+          </div>
+          <div class="beneficio-conteudo">
+            <p class="beneficio-titulo">Resultado em 30 minutos</p>
+            <p class="beneficio-desc">Com apenas 5 informações, você recebe uma análise automática e completa do seu negócio.</p>
+          </div>
+        </div>
+
+        <div class="beneficio">
+          <div class="beneficio-ico">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="beneficio-conteudo">
+            <p class="beneficio-titulo">Saiba o que pode retirar</p>
+            <p class="beneficio-desc">Entenda quanto é realmente seu e se o negócio está dando lucro ou prejuízo.</p>
+          </div>
+        </div>
+
+        <div class="beneficio">
+          <div class="beneficio-ico">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+          </div>
+          <div class="beneficio-conteudo">
+            <p class="beneficio-titulo">Sem planilhas complicadas</p>
+            <p class="beneficio-desc">Sem cálculos difíceis. Sem precisar entender de finanças.</p>
+          </div>
+        </div>
+
+        <div class="beneficio">
+          <div class="beneficio-ico">
+            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div class="beneficio-conteudo">
+            <p class="beneficio-titulo">Menos de R$ 0,19 por dia</p>
+            <p class="beneficio-desc">Para entender o que está acontecendo com o dinheiro do seu negócio.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero-cta">
+        <a href="https://pay.hotmart.com/S105052210H?checkoutMode=10"
+           class="btn-cta"
+           onclick="fbq('track','InitiateCheckout')">
+          QUERO TER MAIS DINHEIRO NO BOLSO
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </a>
+        <span class="hero-nota">Pagamento único. Acesso imediato após confirmação.</span>
+      </div>
+
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+          <span class="trust-texto">Diagnóstico automático do negócio</span>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+          <span class="trust-texto">Clareza financeira em 30 minutos</span>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+          <span class="trust-texto">Feita para profissionais da beleza</span>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
+          <span class="trust-texto">Simples, rápida e prática</span>
+        </div>
       </div>
 
     </div>
+
   </div>
 </section>
 
 <!-- ==========================================
-     SEÇÃO 2: COMPARAÇÃO PRIMÁRIA
+     SEÇÃO 2: DEPOIMENTOS — CARROSSEL
+========================================== -->
+<section class="depoimentos scroll-reveal">
+  <div class="container">
+
+    <span class="section-tag">Resultados Reais</span>
+    <h2 class="section-h2">Elas não preencheram uma calculadora, entenderam por que o dinheiro nunca sobrava.</h2>
+    <p class="section-sub">Estas histórias vieram direto pelo WhatsApp após o preenchimento da Calculadora do Lucro Real.</p>
+
+    <div class="carrossel-wrapper">
+
+      <button class="seta-car seta-prev" id="btnPrev" aria-label="Depoimento anterior">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="carrossel-viewport">
+        <div class="carrossel-track" id="carrosselTrack">
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-graciela.jpeg" alt="Depoimento Graciela">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-neia.jpg" alt="Depoimento Néia">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-debora-2.jpeg" alt="Depoimento Débora">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-cida.jpeg" alt="Depoimento Cida">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-debora-1.jpeg" alt="Depoimento Débora 2">
+            </div>
+          </div>
+
+          <div class="dep-card">
+            <div class="dep-card-topo"></div>
+            <div class="dep-card-inner">
+              <img src="dep-vivi.png" alt="Depoimento Vivi">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="seta-car seta-next" id="btnNext" aria-label="Próximo depoimento">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+    </div>
+
+    <div class="dots-car" id="dotsCar"></div>
+    <div class="carrossel-contador" id="contadorCar"></div>
+    <p class="swipe-hint">← Deslize para ver mais depoimentos →</p>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var track    = document.getElementById('carrosselTrack');
+  var btnPrev  = document.getElementById('btnPrev');
+  var btnNext  = document.getElementById('btnNext');
+  var dotsWrap = document.getElementById('dotsCar');
+  var contadorEl = document.getElementById('contadorCar');
+  if (!track) return;
+  var cards = track.querySelectorAll('.dep-card');
+  var total = cards.length;
+  var atual = 0;
+
+  cards.forEach(function(_, i) {
+    var d = document.createElement('button');
+    d.className = 'dot-car' + (i === 0 ? ' ativo' : '');
+    d.setAttribute('aria-label', 'Depoimento ' + (i + 1));
+    d.addEventListener('click', function() { ir(i); });
+    dotsWrap.appendChild(d);
+  });
+
+  function atualizarUI() {
+    track.style.transform = 'translateX(-' + (atual * 100) + '%)';
+    dotsWrap.querySelectorAll('.dot-car').forEach(function(d, i) {
+      d.classList.toggle('ativo', i === atual);
+    });
+    btnPrev.classList.toggle('desabilitada', atual === 0);
+    btnNext.classList.toggle('desabilitada', atual === total - 1);
+    contadorEl.innerHTML = '<strong>' + (atual + 1) + '</strong> de <strong>' + total + '</strong>';
+  }
+
+  function ir(idx) {
+    atual = Math.max(0, Math.min(idx, total - 1));
+    atualizarUI();
+  }
+
+  btnPrev.addEventListener('click', function() { ir(atual - 1); });
+  btnNext.addEventListener('click', function() { ir(atual + 1); });
+
+  var touchStartX = 0, touchStartY = 0;
+  var isDragging = false, dragStartX = 0;
+
+  track.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  track.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    var dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 44) {
+      ir(dx < 0 ? atual + 1 : atual - 1);
+    }
+  }, { passive: true });
+
+  track.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    dragStartX = e.clientX;
+    track.style.transition = 'none';
+  });
+
+  window.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    var diff = e.clientX - dragStartX;
+    var base = -(atual * 100);
+    var percent = (diff / track.parentElement.offsetWidth) * 100;
+    track.style.transform = 'translateX(' + (base + percent) + '%)';
+  });
+
+  window.addEventListener('mouseup', function(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    track.style.transition = '';
+    var diff = e.clientX - dragStartX;
+    if (Math.abs(diff) > 60) {
+      ir(diff < 0 ? atual + 1 : atual - 1);
+    } else {
+      atualizarUI();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft')  ir(atual - 1);
+    if (e.key === 'ArrowRight') ir(atual + 1);
+  });
+
+  atualizarUI();
+})();
+</script>
+
+<!-- ==========================================
+     SEÇÃO 3: COMPARAÇÃO PRIMÁRIA
 ========================================== -->
 <section class="comparacao scroll-reveal">
   <div class="container">
@@ -1063,25 +1578,7 @@
   </div>
 </section>
 
-<!-- ==========================================
-     SEÇÃO 11: DEPOIMENTOS
-========================================== -->
-<section class="depoimentos scroll-reveal">
-  <div class="container">
-    <span class="section-tag">Quem já usou conta</span>
-    <h2 class="section-h2">Olha o que aconteceu com quem preencheu a calculadora</h2>
-    <p class="section-sub">Essas histórias vieram direto pelo WhatsApp, depois do diagnóstico.</p>
-
-    <div class="dep-grid">
-      <img src="dep-graciela.jpeg" alt="Depoimento Graciela">
-      <img src="dep-neia.jpg" alt="Depoimento Néia">
-      <img src="dep-debora-2.jpeg" alt="Depoimento Débora">
-      <img src="dep-cida.jpeg" alt="Depoimento Cida">
-      <img src="dep-debora-1.jpeg" alt="Depoimento Débora 2">
-      <img src="dep-vivi.png" alt="Depoimento Vivi">
-    </div>
-  </div>
-</section>
+<!-- Depoimentos movidos para segunda dobra (após o hero) -->
 
 <!-- ==========================================
      SEÇÃO 12: ENTREGÁVEIS COMPLEMENTARES
