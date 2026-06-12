@@ -93,7 +93,10 @@
       transition: all 0.3s ease; text-decoration: none; font-family: 'Inter', sans-serif;
     }
     .btn-verde { background: #D97757; color: #fff; box-shadow: 0 4px 20px rgba(217,119,87,0.35); }
-    .btn-verde:hover { background: #b8603e; transform: translateY(-3px); box-shadow: 0 8px 32px rgba(217,119,87,0.45); }
+    .btn-verde:hover { background: #b8603e; box-shadow: 0 8px 32px rgba(217,119,87,0.45); }
+    @media (hover: hover) and (pointer: fine) {
+      .btn-verde:hover { transform: translateY(-3px); }
+    }
     .btn-grande { font-size: 1.1rem; padding: 20px 52px; }
 
     /* ======================================
