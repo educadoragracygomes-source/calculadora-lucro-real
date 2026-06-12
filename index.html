@@ -961,6 +961,89 @@
       .dep-card-inner { padding: 16px; }
       .swipe-hint { display: block; }
     }
+
+    /* ====================================================
+       SEÇÃO 2B: CARROSSEL DE SCREENSHOTS
+    ==================================================== */
+    .screenshots-carousel {
+      background: #fff;
+      padding: 72px 0 56px;
+    }
+    .sc-title {
+      font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+      font-weight: 800;
+      color: var(--verde-dark);
+      text-align: center;
+      line-height: 1.3;
+      margin-bottom: 36px;
+    }
+    .sc-wrapper {
+      position: relative;
+      max-width: 440px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+    .sc-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .sc-slide {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sc-label {
+      width: 100%;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--verde-dark);
+      background: var(--verde-glow);
+      padding: 13px 20px;
+      text-align: center;
+      border-radius: 24px 24px 0 0;
+      border: 1.5px solid var(--border);
+      border-bottom: none;
+    }
+    .sc-img-wrap {
+      width: 100%;
+      border-radius: 0 0 24px 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1.5px solid var(--border);
+      border-top: none;
+    }
+    .sc-img-wrap img {
+      width: 100%;
+      display: block;
+    }
+    .sc-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .sc-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--nude-escuro);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+      padding: 0;
+    }
+    .sc-dot.active {
+      background: var(--verde);
+      transform: scale(1.4);
+    }
+    @media (max-width: 600px) {
+      .screenshots-carousel { padding: 52px 0 40px; }
+      .sc-wrapper { max-width: 100%; border-radius: 18px; }
+      .sc-label { font-size: 0.82rem; padding: 10px 16px; border-radius: 18px 18px 0 0; }
+    }
   </style>
 </head>
 <body>
@@ -969,10 +1052,6 @@
      BARRA SUPERIOR + NOME DO PRODUTO + HERO
 ========================================== -->
 
-<!-- Barra superior -->
-<div class="top-bar">
-  <p>Quer continuar trabalhando muito sem ver o resultado ou quer <strong>ter mais dinheiro no bolso?</strong></p>
-</div>
 
 <!-- Nome do produto -->
 <div class="produto-nome-area">
@@ -995,7 +1074,7 @@
         Entenda o que está <span class="destaque-verde">roubando o seu lucro</span> e tenha <span class="destaque-dourado">mais dinheiro no bolso.</span>
       </h1>
       <div class="hero-mockup">
-        <img src="hero-mockup2.png" alt="Calculadora do Lucro Real no computador e celular">
+        <img src="hero-mockup3.png" alt="Calculadora do Lucro Real no computador e celular">
       </div>
     </div>
 
@@ -1065,26 +1144,69 @@
 
   </div>
 
-  <!-- 4 bullets abaixo do grid — só PC (mobile: 2 colunas) -->
-  <div class="trust-badges">
-    <div class="trust-badge">
-      <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
-      <span class="trust-texto">Diagnóstico automático do negócio</span>
-    </div>
-    <div class="trust-badge">
-      <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
-      <span class="trust-texto">Clareza financeira em 30 minutos</span>
-    </div>
-    <div class="trust-badge">
-      <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
-      <span class="trust-texto">Feita para profissionais da beleza</span>
-    </div>
-    <div class="trust-badge">
-      <div class="trust-check"><svg viewBox="0 0 12 12"><polyline points="1.5 6 4.5 9 10.5 3"/></svg></div>
-      <span class="trust-texto">Simples, rápida e prática</span>
-    </div>
-  </div>
 
+</section>
+
+<!-- ==========================================
+     SEÇÃO 2B: O QUE VOCÊ DESCOBRE
+========================================== -->
+<section class="screenshots-carousel scroll-reveal">
+  <div class="container">
+    <h2 class="sc-title">Veja o que você descobre em menos de 30 minutos</h2>
+    <div class="sc-wrapper">
+      <div class="sc-track" id="scTrack">
+        <div class="sc-slide">
+          <span class="sc-label">🎯 Acompanhe sua meta de lucro mês a mês</span>
+          <div class="sc-img-wrap"><img src="slide-01.jpg" alt="Meta de lucro" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">🌡️ Veja a saúde financeira do seu negócio</span>
+          <div class="sc-img-wrap"><img src="slide-02.jpg" alt="Saúde financeira" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">📊 Descubra quanto realmente sobrou no mês</span>
+          <div class="sc-img-wrap"><img src="slide-03.jpg" alt="Resumo do mês" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">💰 Retire dinheiro com mais segurança</span>
+          <div class="sc-img-wrap"><img src="slide-04.jpg" alt="Pró-labore" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">❤️ Identifique seus pontos fortes e gargalos</span>
+          <div class="sc-img-wrap"><img src="slide-05.jpg" alt="Indicadores" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">💌 Receba uma análise personalizada dos seus números</span>
+          <div class="sc-img-wrap"><img src="slide-06.jpg" alt="Análise personalizada" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">🎁 Receba orientação para transformar números em decisões</span>
+          <div class="sc-img-wrap"><img src="slide-07.jpg" alt="Orientação financeira" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">📅 Acompanhe a evolução do seu negócio durante todo o ano</span>
+          <div class="sc-img-wrap"><img src="slide-08.jpg" alt="Evolução anual" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">📈 Descubra quais foram seus melhores e piores períodos</span>
+          <div class="sc-img-wrap"><img src="slide-09.jpg" alt="Melhores e piores períodos" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">🔎 Entenda onde seu lucro está escapando</span>
+          <div class="sc-img-wrap"><img src="slide-10.jpg" alt="Onde o lucro escapa" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">🏆 Descubra os destaques do seu ano</span>
+          <div class="sc-img-wrap"><img src="slide-11.jpg" alt="Destaques do ano" loading="lazy"></div>
+        </div>
+        <div class="sc-slide">
+          <span class="sc-label">✨ Tudo isso em menos de 30 minutos e com apenas 5 informações</span>
+          <div class="sc-img-wrap"><img src="slide-12.jpg" alt="5 informações" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-dots" id="scDots"></div>
+  </div>
 </section>
 
 <!-- ==========================================
@@ -1964,12 +2086,58 @@
 </script>
 
 <script>
+  // Carrossel de screenshots — auto-play
+  (function() {
+    var track = document.getElementById('scTrack');
+    var dotsEl = document.getElementById('scDots');
+    if (!track || !dotsEl) return;
+    var slides = track.querySelectorAll('.sc-slide');
+    var total = slides.length;
+    var current = 0;
+    var interval;
+
+    for (var i = 0; i < total; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'sc-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      (function(idx) {
+        dot.addEventListener('click', function() { goTo(idx); resetTimer(); });
+      })(i);
+      dotsEl.appendChild(dot);
+    }
+
+    function goTo(n) {
+      current = (n + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dotsEl.querySelectorAll('.sc-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function resetTimer() {
+      clearInterval(interval);
+      interval = setInterval(function() { goTo(current + 1); }, 3500);
+    }
+
+    resetTimer();
+
+    var startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive: true});
+    track.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) { goTo(current + (dx < 0 ? 1 : -1)); resetTimer(); }
+    }, {passive: true});
+  })();
+</script>
+
+<script>
   // Reordenar seções para estrutura curta
   (function() {
     const footer = document.querySelector('footer');
     if (!footer) return;
     const ordem = [
       '.hero',
+      '.screenshots-carousel',
       '.depoimentos',
       '.demo',
       '.entregaveis',
