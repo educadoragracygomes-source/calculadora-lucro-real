@@ -21,7 +21,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,14 +50,14 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Manrope', sans-serif;
       color: var(--texto);
       background: var(--nude);
       font-size: 16px;
       line-height: 1.7;
     }
 
-    h1,h2,h3,h4 { font-family: 'Inter', sans-serif; line-height: 1.2; }
+    h1,h2,h3,h4 { font-family: 'Manrope', sans-serif; line-height: 1.2; }
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
     s { text-decoration: line-through; }
@@ -90,7 +91,7 @@
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
       padding: 18px 40px; font-size: 1rem; font-weight: 700;
       border: none; border-radius: 12px; cursor: pointer;
-      transition: all 0.3s ease; text-decoration: none; font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease; text-decoration: none; font-family: 'Manrope', sans-serif;
       touch-action: manipulation;
     }
     .btn-verde { background: #D97757; color: #fff; box-shadow: 0 4px 20px rgba(217,119,87,0.35); }
@@ -240,26 +241,21 @@
        SEÇÃO 4: DIÁLOGO MENTAL NEGATIVO
     ====================================== */
     .dialogo {
-      background: var(--verde-dark);
-      background-image: radial-gradient(at 50% 0%, rgba(200,182,226,0.1) 0%, transparent 60%);
-      color: #fff;
+      background: var(--nude);
     }
-    .dialogo h2 { color: #fff; }
-    .dialogo h2 strong { color: var(--lilas); }
-    .dialogo .section-sub { color: rgba(255,255,255,0.6); }
 
     .dialogo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 780px; margin: 0 auto; }
     .dialogo-card {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      background: var(--branco); border: 1px solid rgba(31,122,99,0.15);
       border-radius: var(--radius); padding: 24px 24px 24px 28px; position: relative;
     }
     .dialogo-card::before {
       content: '"'; position: absolute; top: 12px; left: 18px;
       font-size: 2.8rem; line-height: 1; font-family: Georgia, serif;
-      color: var(--lilas); opacity: 0.35;
+      color: var(--verde); opacity: 0.3;
     }
-    .dialogo-texto { font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.82); padding-top: 6px; }
-    .dialogo-texto strong { color: var(--lilas); font-weight: 600; }
+    .dialogo-texto { font-size: 0.92rem; line-height: 1.7; color: var(--texto); padding-top: 6px; }
+    .dialogo-texto strong { color: var(--verde); font-weight: 600; }
 
     /* ======================================
        SEÇÃO 5: A CULPA NÃO É SUA
@@ -441,13 +437,13 @@
     .dep-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      align-items: start;
       gap: 20px;
       max-width: 1080px;
       margin: 0 auto;
     }
     .dep-item {
       border-radius: 16px;
-      overflow: hidden;
       box-shadow: 0 4px 24px rgba(0,0,0,0.10);
       background: #fff;
       border: 1px solid rgba(0,0,0,0.06);
@@ -458,26 +454,19 @@
       height: 4px;
       background: linear-gradient(90deg, #1f7a63, #b8995a);
       flex-shrink: 0;
+      border-radius: 16px 16px 0 0;
     }
     .dep-item img {
       display: block;
       width: 100%;
-      flex: 1;
-      object-fit: cover;
-    }
-    .dep-item:nth-child(1) img,
-    .dep-item:nth-child(3) img {
-      max-height: 320px;
-      object-position: top;
-    }
-    .dep-item { height: 100%; }
-    .dep-item:nth-child(1) .dep-destaque,
-    .dep-item:nth-child(3) .dep-destaque {
-      margin-top: auto;
+      height: auto;
+      flex-shrink: 0;
     }
     .dep-destaque {
       background: #14503c;
       color: #fff;
+      flex-shrink: 0;
+      border-radius: 0 0 16px 16px;
       font-size: 0.82rem;
       font-weight: 600;
       font-style: italic;
@@ -545,6 +534,19 @@
     }
     .entregavel-ico { width: 46px; height: 46px; border-radius: 11px; background: rgba(31,122,99,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
     .entregavel.principal .entregavel-ico { background: rgba(31,122,99,0.14); }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .entregavel-ico .material-symbols-outlined { font-size: 22px; color: var(--verde); font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
     .entregavel-info { flex: 1; }
     .entregavel-badge { display: inline-block; background: var(--verde); color: #fff; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; margin-bottom: 5px; }
     .entregavel-nome { font-size: 0.92rem; font-weight: 700; color: var(--texto); margin-bottom: 3px; }
@@ -647,7 +649,7 @@
       width: 100%; padding: 16px 0; display: flex; justify-content: space-between; align-items: center;
       background: none; border: none; cursor: pointer;
       font-size: 0.95rem; font-weight: 600; text-align: left;
-      color: var(--texto); font-family: 'Inter', sans-serif; gap: 14px;
+      color: var(--texto); font-family: 'Manrope', sans-serif; gap: 14px;
     }
     .faq-seta { flex-shrink: 0; width: 18px; height: 18px; color: var(--texto-claro); transition: transform 0.3s ease; }
     .faq-pergunta.aberta .faq-seta { transform: rotate(180deg); }
@@ -788,10 +790,11 @@
       max-width: 1080px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.4fr 0.6fr;
-      gap: 56px;
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: start;
     }
+    .hero-dir { align-self: center; margin-top: 90px; }
     .hero-h1 {
       font-family: 'Nunito', sans-serif;
       font-size: clamp(2.1rem, 3.4vw, 2.9rem);
@@ -880,7 +883,7 @@
     }
     .hero-cta {
       display: flex; flex-direction: column; align-items: center;
-      gap: 10px; margin-bottom: 22px;
+      gap: 10px; margin: 28px auto 22px; max-width: 460px;
     }
     .btn-cta {
       display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -993,11 +996,12 @@
       .hero { padding: 28px 16px 48px; }
       .hero-container { display: flex; flex-direction: column; gap: 0; }
       .hero-esq, .hero-dir { display: contents; }
-      .hero-h1, .hero .hero-h1 { order: 1; font-size: 1.75rem; margin-bottom: 16px; text-align: center; color: #111111; }
-      .hero-mockup { order: 2; margin-bottom: 20px; }
-      .hero-intro  { order: 3; margin-bottom: 16px; padding-bottom: 0; border-bottom: none; }
-      .hero-cta    { order: 4; margin-bottom: 20px; }
-      .beneficios  { order: 5; gap: 12px; margin-bottom: 22px; }
+      .hero-esq > .hero-intro-titulo { order: 1; text-align: center; }
+      .hero-h1, .hero .hero-h1 { order: 2; font-size: 1.75rem; margin-bottom: 16px; text-align: center; color: #111111; }
+      .hero-esq > .hero-intro-sub { order: 3; margin-bottom: 16px; text-align: center; }
+      .hero-mockup { order: 4; margin-bottom: 20px; }
+      .hero-cta    { order: 5; margin-bottom: 20px; }
+      .beneficios  { order: 6; gap: 12px; margin-bottom: 22px; }
       .trust-badges { grid-template-columns: 1fr 1fr; gap: 8px; padding: 14px 16px 0; }
       .hero-mockup img { width: 100%; max-width: 480px; margin: 0 auto; }
       .hero-intro-titulo { font-size: 0.95rem; }
@@ -1016,11 +1020,11 @@
        SEÇÃO 2B: CARROSSEL DE SCREENSHOTS
     ==================================================== */
     .screenshots-carousel {
-      background: #fff;
+      background: var(--nude-escuro);
       padding: 72px 0 56px;
     }
     .sc-title {
-      font-size: clamp(0.95rem, 2vw, 1.3rem);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
       font-weight: 800;
       color: var(--verde-dark);
       text-align: center;
@@ -1119,7 +1123,6 @@
 <!-- Nome do produto -->
 <div class="produto-nome-area">
   <span class="produto-selo">Para Profissionais da Beleza</span>
-  <span class="produto-logotipo">Calculadora do Lucro Real</span>
   <div class="produto-detalhe">
     <div class="produto-linha"></div>
     <span class="produto-estrela">✦ ✦ ✦</span>
@@ -1131,77 +1134,25 @@
 <section class="hero">
   <div class="hero-container">
 
-    <!-- Coluna esquerda: headline + mockup -->
+    <!-- Coluna esquerda: headline + subheadline + mockup -->
     <div class="hero-esq">
       <h1 class="hero-h1">
-        Finalmente entenda o que acontece com o <span class="destaque-verde">dinheiro do seu negócio</span> e comece a tomar <span class="destaque-dourado">decisões com segurança.</span>
+        Agenda cheia e dinheiro no bolso são coisas diferentes.
       </h1>
+      <p class="hero-intro-sub" style="margin-bottom:20px;">Em poucos minutos, você entende para onde vai o dinheiro do seu negócio e como fechar o mês no azul. A calculadora entende de finanças por você.</p>
       <div class="hero-mockup">
-        <img src="hero-mockup3.png" alt="Calculadora do Lucro Real no computador e celular">
-      </div>
-    </div>
-
-    <!-- Coluna direita: intro + benefícios + CTA -->
-    <div class="hero-dir">
-
-      <div class="hero-intro">
-        <p class="hero-intro-sub">Com 5 informações, você descobre em menos de 30 minutos quanto realmente sobra no seu bolso e onde estão as oportunidades para lucrar mais.</p>
-      </div>
-
-      <div class="beneficios">
-
-        <div class="beneficio">
-          <div class="beneficio-ico">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
-          </div>
-          <div class="beneficio-conteudo">
-            <p class="beneficio-titulo">O que está acontecendo com cada real</p>
-            <p class="beneficio-desc">Veja o que entra no seu negócio e quanto você realmente está lucrando.</p>
-          </div>
-        </div>
-
-        <div class="beneficio">
-          <div class="beneficio-ico">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div class="beneficio-conteudo">
-            <p class="beneficio-titulo">Onde estão as oportunidades de lucrar mais</p>
-            <p class="beneficio-desc">Descubra o que você ainda não está enxergando no seu negócio.</p>
-          </div>
-        </div>
-
-        <div class="beneficio">
-          <div class="beneficio-ico">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
-          </div>
-          <div class="beneficio-conteudo">
-            <p class="beneficio-titulo">Decisões financeiras com segurança</p>
-            <p class="beneficio-desc">Sem precisar ser especialista em finanças.</p>
-          </div>
-        </div>
-
-        <div class="beneficio">
-          <div class="beneficio-ico">
-            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-          </div>
-          <div class="beneficio-conteudo">
-            <p class="beneficio-titulo">Menos de R$ 0,19 por dia</p>
-            <p class="beneficio-desc">Para entender o que está acontecendo com o dinheiro do seu negócio.</p>
-          </div>
-        </div>
-
+        <img src="hero-mockup6.png" alt="Empreendedora analisando o Raio-X Financeiro no computador">
       </div>
 
       <div class="hero-cta">
         <a href="https://pay.hotmart.com/S105052210H?checkoutMode=10"
            class="btn-cta"
            onclick="fbq('track','InitiateCheckout')">
-          QUERO TER MAIS DINHEIRO NO BOLSO
+          QUERO TER MAIS DINHEIRO NO BOLSO TODO MÊS
           <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
         </a>
         <span class="hero-nota">Pagamento único. Acesso imediato após confirmação.</span>
       </div>
-
     </div>
 
   </div>
@@ -1215,7 +1166,7 @@
 <section class="screenshots-carousel scroll-reveal">
   <div class="container">
     <h2 class="sc-title">Você coloca 5 informações do seu negócio. A Calculadora faz todo o cálculo.</h2>
-    <p class="sc-subtitle">Em menos de 30 minutos você sabe exatamente quanto sobra no seu bolso, para onde está indo cada real e onde estão as oportunidades que você ainda não está aproveitando.</p>
+    <p class="sc-subtitle">Em poucos minutos, você descobre exatamente quanto sobra no seu bolso, para onde está indo cada real e onde estão as oportunidades que estão fazendo você perder dinheiro.</p>
     <div class="sc-wrapper">
       <div class="sc-track" id="scTrack">
         <div class="sc-slide">
@@ -1273,6 +1224,34 @@
 </section>
 
 <!-- ==========================================
+     SEÇÃO 3B: DIÁLOGO MENTAL NEGATIVO
+========================================== -->
+<section class="dialogo scroll-reveal">
+  <div class="container">
+    <span class="section-tag">Isso te parece familiar?</span>
+    <h2 class="section-h2"><strong>Todo fim de mês é a mesma coisa:</strong> você trabalha muito e o dinheiro some sem explicação</h2>
+    <p class="section-sub">e você passa o mês com pensamentos como...</p>
+
+    <div class="dialogo-grid">
+      <div class="dialogo-card">
+        <p class="dialogo-texto"><strong>"Eu trabalho tanto, por que nunca sobra dinheiro?"</strong> Atendo o dia todo, agenda cheia, e o saldo no fim do mês não bate com o esforço.</p>
+      </div>
+      <div class="dialogo-card">
+        <p class="dialogo-texto">"Atendo o dia todo e continuo no zero. <strong>Tem coisa errada mas eu não sei o que é.</strong> Parece que tem um furo em algum lugar."</p>
+      </div>
+      <div class="dialogo-card">
+        <p class="dialogo-texto">"Não sei se estou ganhando ou perdendo dinheiro no fim do mês. <strong>Tenho medo de olhar os números</strong> e descobrir que estou no vermelho."</p>
+      </div>
+      <div class="dialogo-card">
+        <p class="dialogo-texto">"<strong>Sempre parece que estou correndo atrás e nunca alcançando.</strong> Já tentei economizar, já tentei atender mais, nada muda."</p>
+      </div>
+    </div>
+
+    <p style="font-style: italic; color: var(--texto-medio); font-size: 0.93rem; max-width: 620px; margin: 28px auto 0; text-align: center; line-height: 1.8;">A calculadora usa os 5 indicadores que determinam se um negócio de serviços é lucrativo: faturamento bruto, custo de insumos, despesas fixas, imposto sobre receita e pró-labore. Com esses dados preenchidos, o diagnóstico financeiro aparece automaticamente, sem fórmula manual e sem precisar entender de contabilidade.</p>
+  </div>
+</section>
+
+<!-- ==========================================
      SEÇÃO 3: COMPARAÇÃO PRIMÁRIA
 ========================================== -->
 <section class="comparacao scroll-reveal">
@@ -1285,7 +1264,7 @@
       <div class="comp-card comp-ruim">
         <div class="comp-header">
           <div class="comp-ico">✗</div>
-          <span class="comp-titulo">Gestão no Feeling</span>
+          <span class="comp-titulo">Gestão sem Clareza</span>
         </div>
         <div class="comp-lista">
           <div class="comp-item"><span class="comp-item-ico">✗</span> Fatura R$ 5.000 e termina o mês sem sobrar nada</div>
@@ -1366,7 +1345,7 @@
         </div>
         <div class="tab-row">
           <div class="tab-cell antes"><span class="tab-mark">✗</span> Gasta horas tentando montar planilha</div>
-          <div class="tab-cell depois"><span class="tab-mark">✓</span> <strong>Resultado completo em 30 minutos</strong>, sem fórmula</div>
+          <div class="tab-cell depois"><span class="tab-mark">✓</span> <strong>Resultado completo em menos de 30 minutos</strong>, sem fórmula</div>
         </div>
         <div class="tab-row">
           <div class="tab-cell antes"><span class="tab-mark">✗</span> Descobre o problema quando o caixa zerou</div>
@@ -1386,35 +1365,9 @@
 </section>
 
 <!-- ==========================================
-     SEÇÃO 4: DIÁLOGO MENTAL NEGATIVO
-========================================== -->
-<section class="dialogo scroll-reveal" style="display:none">
-  <div class="container">
-    <span class="section-tag">Isso te parece familiar?</span>
-    <h2 class="section-h2"><strong>Todo fim de mês é a mesma coisa:</strong> você trabalha muito e o dinheiro some sem explicação</h2>
-    <p class="section-sub">e você passa o mês com pensamentos como...</p>
-
-    <div class="dialogo-grid">
-      <div class="dialogo-card">
-        <p class="dialogo-texto"><strong>"Eu trabalho tanto, por que nunca sobra dinheiro?"</strong> Atendo o dia todo, agenda cheia, e o saldo no fim do mês não bate com o esforço.</p>
-      </div>
-      <div class="dialogo-card">
-        <p class="dialogo-texto">"Atendo o dia todo e continuo no zero. <strong>Tem coisa errada mas eu não sei o que é.</strong> Parece que tem um furo em algum lugar."</p>
-      </div>
-      <div class="dialogo-card">
-        <p class="dialogo-texto">"Não sei se estou tendo lucro ou prejuízo no fim do mês. <strong>Tenho medo de olhar os números</strong> e descobrir que estou no vermelho."</p>
-      </div>
-      <div class="dialogo-card">
-        <p class="dialogo-texto">"<strong>Sempre parece que estou correndo atrás e nunca alcançando.</strong> Já tentei economizar, já tentei atender mais, nada muda."</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================
      SEÇÃO 5: A CULPA NÃO É SUA
 ========================================== -->
-<section class="culpa scroll-reveal" style="display:none">
+<section class="culpa scroll-reveal">
   <div class="container">
     <span class="section-tag">Entenda o que está acontecendo</span>
     <h2 class="section-h2">Você se dedica ao trabalho todos os dias. Os números do seu negócio é que nunca foram ensinados para você</h2>
@@ -1449,11 +1402,11 @@
 <!-- ==========================================
      SEÇÃO 6: FAÇA AS CONTAS
 ========================================== -->
-<section class="contas scroll-reveal" style="display:none">
+<section class="contas scroll-reveal">
   <div class="container">
     <span class="section-tag">A matemática não mente</span>
     <h2 class="section-h2">Olha sua agenda e faz a conta comigo</h2>
-    <p class="section-sub">Em 30 minutos você sai deste cenário e chega neste.</p>
+    <p class="section-sub">Em menos de 30 minutos você sai deste cenário e chega neste.</p>
 
     <div class="contas-grid">
       <div class="conta-card conta-ruim">
@@ -1482,7 +1435,7 @@
     </div>
 
     <div class="contas-impacto">
-      <p>Em 30 minutos, você para de adivinhar e começa a saber. <strong>A diferença entre o que você acha que ganha e o que realmente fica no seu bolso pode ser a causa de todo o estresse financeiro do fim do mês.</strong> Com os números na mão, as decisões mudam.</p>
+      <p>Em menos de 30 minutos, você para de adivinhar e começa a saber. <strong>A diferença entre o que você acha que ganha e o que realmente fica no seu bolso pode ser a causa de todo o estresse financeiro do fim do mês.</strong> Com os números na mão, as decisões mudam.</p>
     </div>
     <p class="contas-nota">Números hipotéticos para fins de exemplo. Substitua pelos seus dados reais ao usar a calculadora.</p>
   </div>
@@ -1520,7 +1473,7 @@
 <!-- ==========================================
      SEÇÃO 8: DINÂMICA DE ACESSO
 ========================================== -->
-<section class="acesso scroll-reveal" style="display:none">
+<section class="acesso scroll-reveal">
   <div class="container">
     <span class="section-tag">Como funciona</span>
     <h2 class="section-h2">Do acesso ao diagnóstico financeiro em menos de 30 minutos</h2>
@@ -1547,7 +1500,7 @@
     <div class="acesso-cta">
       <a href="https://pay.hotmart.com/S105052210H?checkoutMode=10" class="btn btn-verde"
          onclick="fbq('track','InitiateCheckout')">
-        Quero clareza financeira agora
+        Quero ter mais dinheiro no bolso
       </a>
     </div>
   </div>
@@ -1567,56 +1520,32 @@
 
       <div class="dep-item">
         <div class="dep-item-topo"></div>
-        <img src="dep-graciela.jpeg" alt="Depoimento Graciela">
-        <div class="dep-destaque">
-          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-          "Trouxe clareza. Agora tomo decisões mais seguras."
-        </div>
-      </div>
-
-      <div class="dep-item">
-        <div class="dep-item-topo"></div>
-        <img src="dep-neia.jpg" alt="Depoimento Néia">
-        <div class="dep-destaque">
-          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-          "A ferramenta trouxe mais clareza e é muito fácil de usar."
-        </div>
-      </div>
-
-      <div class="dep-item">
-        <div class="dep-item-topo"></div>
         <img src="dep-debora-2.jpeg" alt="Depoimento Débora">
-        <div class="dep-destaque">
-          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-          "Menos de 15 minutos. Vi que tirava mais dinheiro do que podia."
-        </div>
       </div>
 
       <div class="dep-item">
         <div class="dep-item-topo"></div>
         <img src="dep-cida.jpeg" alt="Depoimento Cida">
-        <div class="dep-destaque">
-          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-          "Em poucos minutos tive uma visão clara do meu negócio. A calculadora deixa tudo muito simples."
-        </div>
+      </div>
+
+      <div class="dep-item">
+        <div class="dep-item-topo"></div>
+        <img src="dep-graciela.jpeg" alt="Depoimento Graciela">
+      </div>
+
+      <div class="dep-item">
+        <div class="dep-item-topo"></div>
+        <img src="dep-neia.jpg" alt="Depoimento Néia">
       </div>
 
       <div class="dep-item">
         <div class="dep-item-topo"></div>
         <img src="dep-debora-1.jpeg" alt="Depoimento Débora 2">
-        <div class="dep-destaque">
-          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-          "Prática, fácil de usar e te dá uma visão real do financeiro. Super recomendo."
-        </div>
       </div>
 
       <div class="dep-item">
         <div class="dep-item-topo"></div>
         <img src="dep-vivi.png" alt="Depoimento Vivi">
-        <div class="dep-destaque">
-          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-          "Bem tranquilo de usar, bem fácil e intuitiva, além da clareza sobre o meu negócio."
-        </div>
       </div>
 
     </div>
@@ -1755,14 +1684,47 @@
       <div class="esp-texto">
         <h2>Quem é Gracy Gomes?</h2>
 
-        <p>Há mais de 20 anos atuando na área financeira, Gracy Gomes já ajudou centenas de pessoas a entenderem melhor sua relação com o dinheiro e a tomarem decisões financeiras mais inteligentes.</p>
+        <p style="font-size:1.05rem; font-weight:700; color:var(--lilas); line-height:1.5; margin-bottom:8px;">Eu não entrei no mercado da beleza porque faltava opção.</p>
 
-        <p>Foi observando essa realidade que decidiu criar a <strong>Calculadora do Lucro Real</strong>, uma ferramenta simples e prática para ajudar empreendedoras da beleza a enxergarem com clareza os números do negócio, identificarem vazamentos financeiros e descobrirem se estão realmente tendo lucro.</p>
+        <p>Entrei porque as profissionais que fazem parte dele trabalhavam demais para ganhar de menos.</p>
 
-        <p>Gracy acredita que <strong>dinheiro não deve ser um tabu</strong>. Deve ser uma ferramenta de liberdade, segurança e escolhas. E que toda profissional da beleza merece entender suas finanças sem precisar ser especialista em contabilidade ou planilhas complexas.</p>
+        <p>Gracy Gomes tinha dez anos quando viu a própria mãe, com 24 anos e seis filhos, sair de um casamento abusivo sem um centavo guardado.</p>
+
+        <div style="text-align:left; margin:20px 0 22px; padding-left:4px;">
+          <p style="font-size:1.05rem; font-weight:700; color:rgba(255,255,255,0.75); margin:3px 0; line-height:1.4;">Sem renda.</p>
+          <p style="font-size:1.1rem; font-weight:700; color:rgba(255,255,255,0.87); margin:3px 0; line-height:1.4;">Sem reserva.</p>
+          <p style="font-size:1.2rem; font-weight:800; color:var(--lilas); margin:3px 0; line-height:1.4;">Sem escolha.</p>
+        </div>
+
+        <p style="font-style:italic; color:rgba(255,255,255,0.72); font-size:0.92rem; margin-top:-4px;">Ali ela aprendeu o que nenhuma escola ensina: dinheiro é autonomia antes de ser riqueza.</p>
+
+        <p>Décadas depois, trabalhando como educadora financeira com empreendedoras, ela reconheceu um padrão que se repetia.</p>
+
+        <p>Profissionais da beleza com agenda cheia, trabalho reconhecido e, mesmo assim, sem conseguir explicar para onde ia o faturamento ao fim do mês.</p>
+
+        <div style="border-top: 1px solid rgba(255,255,255,0.12); margin: 22px 0;"></div>
+
+        <p style="font-weight:700; color:rgba(255,255,255,0.95); margin-bottom:4px;">Não era falta de esforço.</p>
+
+        <p style="margin-top:0;">Era falta de uma ferramenta que tornasse os números compreensíveis.</p>
+
+        <p>A profissional cobrava por intuição, pagava contas por instinto e só percebia que algo estava errado quando o saldo sumia antes do mês acabar.</p>
+
+        <div style="background:rgba(255,255,255,0.06); border-left:3px solid var(--lilas); border-radius:0 10px 10px 0; padding:16px 20px; margin:18px 0;">
+          <p style="font-size:0.9rem; color:rgba(255,255,255,0.75); margin:0 0 14px; font-style:italic;">Ninguém tinha ensinado a parte que vem depois do atendimento.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <span style="background:rgba(255,255,255,0.1); border-radius:20px; padding:5px 14px; font-size:0.82rem; color:rgba(255,255,255,0.8);">Quanto fica</span>
+            <span style="background:rgba(255,255,255,0.1); border-radius:20px; padding:5px 14px; font-size:0.82rem; color:rgba(255,255,255,0.8);">Quanto sai</span>
+            <span style="background:rgba(217,119,87,0.2); border:1px solid #D97757; border-radius:20px; padding:5px 14px; font-size:0.82rem; color:#D97757; font-weight:600;">O que de fato fica no meu bolso</span>
+          </div>
+        </div>
+
+        <p>A <strong>Calculadora do Lucro Real</strong> nasceu dessa constatação.</p>
+
+        <p>Uma ferramenta para quem nunca estudou gestão e quer saber com clareza, em menos de 30 minutos, o que fica no bolso depois de pagar tudo.</p>
 
         <blockquote style="border-left: 4px solid #D97757; padding: 16px 20px; margin: 20px 0; background: rgba(255,255,255,0.12); border-radius: 0 10px 10px 0; font-style: italic; color: rgba(255,255,255,0.92); font-size: 0.95rem; line-height: 1.7;">
-          "Depois de tantos anos trabalhando com finanças, percebi que o problema raramente é a falta de trabalho. Na maioria das vezes, é a falta de clareza sobre os números."
+          "Se você não controla o dinheiro, ele controla você."
           <cite style="display:block; margin-top:8px; font-style:normal; font-weight:700; font-size:0.85rem; color:#D97757;">— Gracy Gomes</cite>
         </blockquote>
       </div>
@@ -1789,13 +1751,13 @@
         <div class="entregavel-info">
           <span class="entregavel-badge">Produto principal</span>
           <div class="entregavel-nome">Calculadora do Lucro Real</div>
-          <div class="entregavel-desc">Diagnóstico financeiro automático em 30 minutos: faturamento, custos, despesas, imposto e pró-labore em um único painel.</div>
+          <div class="entregavel-desc">Diagnóstico financeiro automático em menos de 30 minutos: faturamento, custos, despesas, imposto e pró-labore em um único painel.</div>
           <div class="entregavel-valor">Valor: <s>R$ 97</s></div>
         </div>
       </div>
 
       <div class="entregavel">
-        <div class="entregavel-ico">📖</div>
+        <div class="entregavel-ico"><span class="material-symbols-outlined">menu_book</span></div>
         <div class="entregavel-info">
           <span class="entregavel-badge">Incluído</span>
           <div class="entregavel-nome">Guia Prático de Uso da Calculadora</div>
@@ -1805,7 +1767,7 @@
       </div>
 
       <div class="entregavel">
-        <div class="entregavel-ico">🎁</div>
+        <div class="entregavel-ico"><span class="material-symbols-outlined">card_giftcard</span></div>
         <div class="entregavel-info">
           <span class="entregavel-badge">Bônus exclusivo</span>
           <div class="entregavel-nome">Guia Prático: Primeiros Ajustes Para Voltar a Ter Lucro</div>
@@ -1815,17 +1777,7 @@
       </div>
 
       <div class="entregavel">
-        <div class="entregavel-ico">🎁</div>
-        <div class="entregavel-info">
-          <span class="entregavel-badge">Bônus exclusivo</span>
-          <div class="entregavel-nome">Raio-X dos Vazamentos Financeiros</div>
-          <div class="entregavel-desc">Identifica os principais pontos onde o dinheiro sai sem você perceber, com checklist prático para fechar cada vazamento.</div>
-          <div class="entregavel-valor">Valor: <s>R$ 67</s></div>
-        </div>
-      </div>
-
-      <div class="entregavel">
-        <div class="entregavel-ico">🎁</div>
+        <div class="entregavel-ico"><span class="material-symbols-outlined">card_giftcard</span></div>
         <div class="entregavel-info">
           <span class="entregavel-badge">Bônus exclusivo</span>
           <div class="entregavel-nome">Kit Anti-Desconto</div>
@@ -1834,18 +1786,8 @@
         </div>
       </div>
 
-      <div class="entregavel">
-        <div class="entregavel-ico">🎁</div>
-        <div class="entregavel-info">
-          <span class="entregavel-badge">Bônus exclusivo</span>
-          <div class="entregavel-nome">Prompts de IA para Gestão Financeira do Negócio</div>
-          <div class="entregavel-desc">Comandos prontos para usar no ChatGPT e organizar melhor as finanças do seu negócio de beleza.</div>
-          <div class="entregavel-valor">Valor: <s>R$ 47</s></div>
-        </div>
-      </div>
-
-      <div class="entregavel" style="border: 2px solid #D97757; background: linear-gradient(135deg, #fff7f4, #fff);">
-        <div class="entregavel-ico">🔒</div>
+      <div class="entregavel" style="border: 2px solid #D97757; background: #fff9f7;">
+        <div class="entregavel-ico"><span class="material-symbols-outlined">lock</span></div>
         <div class="entregavel-info">
           <span class="entregavel-badge" style="background:#D97757;">Bônus especial</span>
           <div class="entregavel-nome">Método Simples para Ajustar Preços com Lucro</div>
@@ -1856,12 +1798,12 @@
     </div>
 
     <div class="entregaveis-total">
-      <div class="ent-total-label">Valor total de tudo: <s>R$ 539</s></div>
+      <div class="ent-total-label">Valor total de tudo: <s>R$ 425</s></div>
       <div class="ent-total-preco">R$ 67</div>
       <div class="ent-total-acesso">Pagamento único. Acesso vitalício.</div>
       <a href="https://pay.hotmart.com/S105052210H?checkoutMode=10" class="btn btn-verde btn-grande"
          onclick="fbq('track','AddToCart');fbq('track','InitiateCheckout')">
-        Quero tudo isso agora
+        Quero ter mais dinheiro no bolso
       </a>
     </div>
   </div>
@@ -1873,8 +1815,8 @@
 <section class="resumo scroll-reveal">
   <div class="container">
     <span class="section-tag" style="color:rgba(255,255,255,0.65)">Resumo do que você leva</span>
-    <h2 class="section-h2">Veja tudo que você recebe ao entrar na Calculadora do Lucro Real</h2>
-    <p class="section-sub">Uma oportunidade absurda para o que está sendo entregue.</p>
+    <h2 class="section-h2">Veja tudo que você recebe ao adquirir a Calculadora do Lucro Real</h2>
+    <p class="section-sub">Veja o que você leva com pagamento único.</p>
 
     <div class="resumo-box">
       <div class="resumo-item">
@@ -1890,15 +1832,7 @@
         <span class="resumo-item-val"><s>R$ 97</s></span>
       </div>
       <div class="resumo-item">
-        <span class="resumo-item-nome">🎁 Raio-X dos Vazamentos Financeiros</span>
-        <span class="resumo-item-val"><s>R$ 67</s></span>
-      </div>
-      <div class="resumo-item">
         <span class="resumo-item-nome">🎁 Kit Anti-Desconto</span>
-        <span class="resumo-item-val"><s>R$ 47</s></span>
-      </div>
-      <div class="resumo-item">
-        <span class="resumo-item-nome">🎁 Prompts de IA para Gestão Financeira</span>
         <span class="resumo-item-val"><s>R$ 47</s></span>
       </div>
       <div class="resumo-item">
@@ -1908,7 +1842,7 @@
     </div>
 
     <div class="resumo-total">
-      <div class="resumo-total-riscado">De <s>R$ 539</s> por apenas:</div>
+      <div class="resumo-total-riscado">De <s>R$ 425</s> por apenas:</div>
       <div class="resumo-total-por"></div>
       <div class="resumo-total-preco">R$ 67</div>
       <div class="resumo-total-acesso">Pagamento único. Acesso vitalício.</div>
@@ -1925,8 +1859,7 @@
 
     <div class="resumo-dep">
       <p class="resumo-dep-texto">"Eu fiquei surpresa ao perceber que estava fazendo tudo errado no meu negócio, principalmente na forma de tirar dinheiro. Levei menos de 15 minutos e já sabia exatamente o que precisava mudar."</p>
-      <div class="resumo-dep-autor">Débora, profissional da beleza</div>
-      <div class="resumo-dep-aviso">Depoimento real de cliente. Substitua por um depoimento seu ao publicar a página.</div>
+      <div class="resumo-dep-autor">Débora</div>
     </div>
   </div>
 </section>
@@ -1964,17 +1897,17 @@
 <section class="cta-final scroll-reveal cta-final-section">
   <div class="container">
     <h2>Saber exatamente para onde vai o dinheiro do seu negócio de beleza e por que ele some <em>mesmo com agenda cheia</em></h2>
-    <p class="cta-final-sub">Você trabalha demais para terminar o mês sem entender onde foi parar o que você ganhou. A clareza financeira começa com os 5 números certos, e 30 minutos são suficientes para tê-la.</p>
+    <p class="cta-final-sub">Você trabalha demais para terminar o mês sem entender onde foi parar o que você ganhou. A clareza financeira começa com os 5 números certos, e menos de 30 minutos são suficientes para tê-la.</p>
 
     <div class="cta-final-preco">
-      <div class="ancora">De <s>R$ 539</s> por apenas:</div>
+      <div class="ancora">De <s>R$ 425</s> por apenas:</div>
       <div class="real">R$ 67</div>
       <div class="acesso">Pagamento único. Acesso vitalício.</div>
     </div>
 
     <a href="https://pay.hotmart.com/S105052210H?checkoutMode=10" class="btn btn-verde btn-grande"
        onclick="fbq('track','InitiateCheckout')">
-      Quero descobrir meu lucro real hoje
+      Quero ter mais dinheiro no bolso hoje
     </a>
 
     <p class="cta-final-nota">7 dias de garantia total. Sem risco.</p>
@@ -2049,7 +1982,7 @@
           <button class="faq-pergunta">Meu problema é falta de clientes, não dinheiro. Esse produto me ajuda?
             <svg class="faq-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-resposta"><p>Muitas profissionais com agenda cheia terminam o mês no zero porque não sabem qual o lucro real de cada atendimento. Antes de investir em buscar mais clientes, vale entender se os que você já tem estão gerando lucro. A calculadora responde essa pergunta em 30 minutos. Dependendo do resultado, a solução pode não ser mais cliente, mas preço ou gestão.</p></div>
+          <div class="faq-resposta"><p>Muitas profissionais com agenda cheia terminam o mês no zero porque não sabem qual o lucro real de cada atendimento. Antes de investir em buscar mais clientes, vale entender se os que você já tem estão gerando lucro. A calculadora responde essa pergunta em menos de 30 minutos. Dependendo do resultado, a solução pode não ser mais cliente, mas preço ou gestão.</p></div>
         </div>
 
         <div class="faq-item">
@@ -2093,21 +2026,15 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div>Calculadora do Lucro Real &copy; 2025. Todos os direitos reservados.</div>
+  <div>Calculadora do Lucro Real &copy; 2026. Todos os direitos reservados.</div>
   <div class="footer-links">
-    <a href="#">Política de Privacidade</a>
+    <a href="https://politica-privacidade-lucro-real.vercel.app" target="_blank" rel="noopener">Política de Privacidade</a>
     <a href="#">Termos de Uso</a>
     <a href="#">Contato</a>
   </div>
 </footer>
 
-<!-- CTA FLUTUANTE MOBILE -->
-<div class="floating-cta">
-  <a href="https://pay.hotmart.com/S105052210H?checkoutMode=10"
-     onclick="fbq('track','InitiateCheckout')">
-    Quero Ter Mais Dinheiro no Bolso
-  </a>
-</div>
+<!-- CTA flutuante mobile removido temporariamente -->
 
 <script>
   // Scroll reveal
@@ -2115,7 +2042,7 @@
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.01, rootMargin: '0px 0px 300px 0px' });
   document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 
   // FAQ accordion
@@ -2184,31 +2111,6 @@
       var dx = e.changedTouches[0].clientX - startX;
       if (Math.abs(dx) > 40) { goTo(current + (dx < 0 ? 1 : -1)); resetTimer(); }
     }, {passive: true});
-  })();
-</script>
-
-<script>
-  // Reordenar seções para estrutura curta
-  (function() {
-    const footer = document.querySelector('footer');
-    if (!footer) return;
-    const ordem = [
-      '.hero',
-      '.screenshots-carousel',
-      '.depoimentos',
-      '.demo',
-      '.entregaveis',
-      '.comparacao',
-      '.resumo',
-      '.cta-final',
-      '.especialista',
-      '.garantia-suporte',
-      '.faq'
-    ];
-    ordem.forEach(function(sel) {
-      const el = document.querySelector(sel);
-      if (el) document.body.insertBefore(el, footer);
-    });
   })();
 </script>
 </body>
