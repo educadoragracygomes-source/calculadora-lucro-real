@@ -2155,5 +2155,19 @@
     }, {passive: true});
   })();
 </script>
+<script>
+  // Repassa o rastreio da origem (src, sck, utm) para os links de compra da Hotmart
+  (function () {
+    var entrada = new URLSearchParams(window.location.search);
+    var chaves = ['src', 'sck', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    var achou = chaves.filter(function (k) { return entrada.get(k); });
+    if (!achou.length) return;
+    document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(function (a) {
+      var url = new URL(a.href);
+      achou.forEach(function (k) { url.searchParams.set(k, entrada.get(k)); });
+      a.href = url.toString();
+    });
+  })();
+</script>
 </body>
 </html>

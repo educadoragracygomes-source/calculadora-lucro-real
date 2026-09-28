@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caça aos Ralos · Gracy Gomes</title>
+  <meta name="description" content="Os 7 lugares por onde o dinheiro de quem trabalha com beleza escapa sem você perceber. Checklist gratuito em 3 minutos.">
+  <meta property="og:title" content="Caça aos Ralos">
+  <meta property="og:description" content="Os 7 lugares por onde o dinheiro de quem trabalha com beleza escapa sem você perceber.">
+  <meta name="theme-color" content="#0D3B2E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <style>
+    :root {
+      --nude: #F3E8E2;
+      --verde: #1F7A63;
+      --verde-dark: #0D3B2E;
+      --verde-claro: #E6F1EC;
+      --lilas: #C8B6E2;
+      --lilas-dark: #9b84cc;
+      --terracota: #D97757;
+      --terracota-claro: rgba(217,119,87,0.12);
+      --texto: #2B2B2B;
+      --texto-medio: #5a5a5a;
+      --texto-claro: #8a8a8a;
+      --branco: #ffffff;
+      --card: #FBF6F3;
+      --border: rgba(31,122,99,0.15);
+      --shadow: 0 4px 20px rgba(0,0,0,0.07);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.13);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; color: var(--texto); background: var(--nude); line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; }
+    a { color: inherit; }
+    .material-symbols-outlined { font-size: 22px; vertical-align: middle; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    @keyframes fadeUpIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes shimmer { 0%, 100% { opacity: 0.4; width: 60px; } 50% { opacity: 1; width: 90px; } }
+    @keyframes gira { to { transform: rotate(360deg); } }
+    @keyframes abre { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .scroll-reveal { opacity: 0; transform: translateY(32px); transition: all 0.7s ease; }
+    .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .header { position: sticky; top: 0; z-index: 100; background: rgba(13,59,46,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); color: var(--branco); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .header-inner { max-width: 760px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 800; font-size: 0.95rem; white-space: nowrap; }
+    .brand-dot { color: var(--terracota); }
+    .progresso-mini { display: flex; align-items: center; gap: 10px; flex: 1; max-width: 260px; }
+    .progresso-mini .barra { flex: 1; height: 6px; background: rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; }
+    .progresso-mini .barra span { display: block; height: 100%; width: 0; background: var(--terracota); border-radius: 6px; transition: width 0.5s ease; }
+    .progresso-mini small { font-size: 0.78rem; opacity: 0.85; white-space: nowrap; }
+
+    /* Hero */
+    .hero {
+      background-color: var(--verde-dark);
+      background-image: radial-gradient(at 80% 20%, rgba(31,122,99,0.55) 0px, transparent 55%), radial-gradient(at 10% 90%, rgba(217,119,87,0.14) 0px, transparent 50%);
+      color: var(--branco); padding: 64px 0 72px; text-align: center; overflow: hidden;
+    }
+    .ralo-arte { width: 170px; height: 170px; margin: 0 auto 26px; position: relative; animation: fadeUpIn 0.8s ease both; }
+    .ralo-arte svg { width: 100%; height: 100%; }
+    .ralo-arte .giro { transform-origin: 85px 85px; animation: gira 18s linear infinite; }
+    .tag { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 7px 14px; border-radius: 50px; background: rgba(200,182,226,0.18); color: var(--lilas); margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(2.6rem, 9vw, 3.8rem); font-weight: 800; animation: fadeUpIn 0.8s 0.1s ease both; }
+    .hero-sub { font-size: 1.12rem; color: rgba(243,232,226,0.9); max-width: 540px; margin: 14px auto 30px; animation: fadeUpIn 0.8s 0.2s ease both; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 50px; font-weight: 800; font-size: 1.02rem; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s ease; font-family: inherit; }
+    .btn-terracota { background: var(--terracota); color: var(--branco); box-shadow: 0 6px 24px rgba(217,119,87,0.35); }
+    .btn-terracota:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(217,119,87,0.45); }
+    .hero-features { display: flex; justify-content: center; gap: 22px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-features span { display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; color: rgba(243,232,226,0.8); }
+    .hero-features .material-symbols-outlined { font-size: 18px; color: var(--lilas); }
+
+    section { padding: 64px 0; }
+    .section-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracota); margin-bottom: 10px; }
+    .shimmer-line { width: 60px; height: 2px; background: linear-gradient(90deg, transparent, var(--verde), transparent); margin: 0 0 22px; border-radius: 2px; animation: shimmer 3s ease-in-out infinite; }
+    .section-headline { font-size: clamp(1.7rem, 5vw, 2.3rem); font-weight: 800; color: var(--verde-dark); margin-bottom: 14px; }
+    .texto-medio { color: var(--texto-medio); }
+
+    /* Ralos */
+    .ralos { display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
+    .ralo {
+      position: relative; background: var(--branco); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px 24px 22px 28px; box-shadow: var(--shadow); transition: all 0.35s ease; overflow: hidden;
+    }
+    .ralo::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--border); transition: background 0.3s ease; }
+    .ralo.sim::before { background: var(--terracota); }
+    .ralo.nao::before { background: var(--verde); }
+    .ralo-topo { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .ralo-num { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; color: var(--terracota); text-transform: uppercase; }
+    .ralo-titulo { font-size: 1.12rem; font-weight: 800; color: var(--verde-dark); }
+    .ralo-status { margin-left: auto; font-size: 0.74rem; font-weight: 800; padding: 4px 10px; border-radius: 50px; display: none; }
+    .ralo.sim .ralo-status { display: inline-block; background: var(--terracota-claro); color: var(--terracota); }
+    .ralo.nao .ralo-status { display: inline-block; background: var(--verde-claro); color: var(--verde); }
+    .ralo-pergunta { font-size: 1.05rem; font-weight: 700; color: var(--texto); margin-bottom: 16px; }
+    .respostas { display: flex; gap: 10px; }
+    .resp {
+      flex: 1; max-width: 160px; padding: 12px 18px; border-radius: 50px; border: 2px solid var(--border);
+      background: var(--branco); font-family: inherit; font-weight: 800; font-size: 0.95rem; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.25s ease; color: var(--texto-medio);
+    }
+    .resp:hover { border-color: var(--verde); color: var(--verde-dark); }
+    .resp .material-symbols-outlined { font-size: 19px; }
+    .ralo.sim .resp[data-v="sim"] { background: var(--terracota); border-color: var(--terracota); color: var(--branco); }
+    .ralo.nao .resp[data-v="nao"] { background: var(--verde); border-color: var(--verde); color: var(--branco); }
+    .explica { display: none; margin-top: 18px; animation: abre 0.4s ease both; }
+    .ralo.sim .explica, .ralo.nao .explica { display: block; }
+    .explica p { font-size: 0.95rem; color: var(--texto-medio); }
+    .explica strong { color: var(--texto); }
+    .fechar { margin-top: 12px; background: var(--verde-claro); border-left: 4px solid var(--terracota); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 14px 16px; display: flex; gap: 10px; }
+    .fechar .material-symbols-outlined { color: var(--terracota); flex-shrink: 0; margin-top: 1px; }
+    .fechar p { color: var(--texto); }
+    .fechar a { font-weight: 800; color: var(--verde-dark); }
+
+    /* Resultado */
+    .resultado-section { background: var(--card); border-top: 1px solid var(--border); }
+    .placar { display: flex; align-items: center; gap: 22px; background: var(--branco); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow-lg); margin-top: 22px; }
+    .placar-num { flex-shrink: 0; width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--verde); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: border-color 0.3s ease; }
+    .placar-num .n { font-size: 2.6rem; font-weight: 800; line-height: 1; color: var(--verde); transition: color 0.3s ease; }
+    .placar-num .l { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--texto-claro); text-align: center; }
+    .placar.medio .placar-num { border-color: var(--terracota); } .placar.medio .n { color: var(--terracota); }
+    .placar.alto .placar-num { border-color: var(--verde-dark); } .placar.alto .n { color: var(--verde-dark); }
+    .placar h3 { font-size: 1.2rem; font-weight: 800; color: var(--verde-dark); margin-bottom: 4px; }
+    .placar p { font-size: 0.97rem; color: var(--texto-medio); }
+    .abertos { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .abertos span { font-size: 0.8rem; font-weight: 700; padding: 5px 12px; border-radius: 50px; background: var(--terracota-claro); color: var(--terracota); }
+    .faixas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+    .faixa { background: var(--branco); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; font-size: 0.88rem; color: var(--texto-medio); transition: all 0.3s ease; }
+    .faixa b { display: block; color: var(--verde-dark); font-size: 0.95rem; margin-bottom: 2px; }
+    .faixa.ativa { border-color: var(--terracota); box-shadow: var(--shadow); color: var(--texto); }
+    .me-conta { margin-top: 22px; background: linear-gradient(135deg, rgba(200,182,226,0.5), rgba(200,182,226,0.2)); border-radius: var(--radius); padding: 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .me-conta p { font-weight: 700; color: var(--verde-dark); }
+    .btn-contorno { background: transparent; color: var(--verde-dark); border: 2px solid var(--verde-dark); padding: 12px 22px; }
+    .btn-contorno:hover { background: var(--verde-dark); color: var(--branco); }
+
+    /* CTA final */
+    .cta-final-section { background-color: var(--verde-dark); background-image: radial-gradient(at 80% 10%, rgba(31,122,99,0.6) 0px, transparent 55%), radial-gradient(at 10% 90%, rgba(217,119,87,0.14) 0px, transparent 50%); color: var(--branco); }
+    .cta-final-section .section-label { color: var(--lilas); }
+    .cta-final-section h2 { font-size: clamp(1.8rem, 5.4vw, 2.5rem); font-weight: 800; margin-bottom: 16px; }
+    .cta-final-section p { color: rgba(243,232,226,0.9); }
+    .cta-final-section p + p { margin-top: 14px; }
+    .lista-calc { list-style: none; margin: 22px 0 30px; display: flex; flex-direction: column; gap: 12px; }
+    .lista-calc li { display: flex; gap: 12px; align-items: flex-start; }
+    .lista-calc .material-symbols-outlined { color: var(--terracota); }
+    .frase { font-family: 'Nunito', sans-serif; font-style: italic; font-weight: 700; font-size: 1.15rem; color: var(--lilas); border-left: 3px solid var(--terracota); padding-left: 16px; margin-top: 34px; }
+
+    footer { text-align: center; padding: 28px 20px 96px; font-size: 0.85rem; color: var(--texto-claro); }
+
+    .floating-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; padding: 12px 16px; background: rgba(13,59,46,0.96); backdrop-filter: blur(20px); border-top: 1px solid rgba(255,255,255,0.08); display: none; transform: translateY(100%); transition: transform 0.3s ease; }
+    .floating-cta.visible { transform: translateY(0); }
+    .floating-cta a { display: block; padding: 15px; text-align: center; background: var(--terracota); color: #fff; font-weight: 800; border-radius: 50px; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      section { padding: 56px 0; }
+      .faixas { grid-template-columns: 1fr; }
+      .placar { flex-direction: column; text-align: center; }
+      .abertos { justify-content: center; }
+      .floating-cta { display: block; }
+    }
+    @media (min-width: 769px) { .floating-cta { display: none !important; } footer { padding-bottom: 28px; } }
+    @media (max-width: 480px) {
+      body { font-size: 16px; }
+      .progresso-mini small { display: none; }
+      .ralo { padding: 20px 18px 18px 22px; }
+      .resp { max-width: none; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">Gracy Gomes<span class="brand-dot">.</span></div>
+      <div class="progresso-mini" aria-label="Ralos respondidos">
+        <div class="barra"><span id="barraTopo"></span></div>
+        <small id="textoTopo">0 de 7 respondidos</small>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <div class="ralo-arte" aria-hidden="true">
+        <svg viewBox="0 0 170 170">
+          <circle cx="85" cy="85" r="80" fill="#1F7A63"/>
+          <circle cx="85" cy="85" r="80" fill="none" stroke="#C8B6E2" stroke-width="4"/>
+          <g class="giro">
+            <circle cx="85" cy="85" r="60" fill="#0D3B2E"/>
+            <g stroke="#1F7A63" stroke-width="7" stroke-linecap="round">
+              <line x1="85" y1="35" x2="85" y2="62"/><line x1="85" y1="108" x2="85" y2="135"/>
+              <line x1="35" y1="85" x2="62" y2="85"/><line x1="108" y1="85" x2="135" y2="85"/>
+              <line x1="50" y1="50" x2="68" y2="68"/><line x1="102" y1="102" x2="120" y2="120"/>
+              <line x1="120" y1="50" x2="102" y2="68"/><line x1="68" y1="102" x2="50" y2="120"/>
+            </g>
+          </g>
+          <circle cx="85" cy="85" r="16" fill="#D97757"/>
+          <text x="85" y="91" text-anchor="middle" font-family="Manrope, sans-serif" font-size="17" font-weight="800" fill="#fff">R$</text>
+        </svg>
+      </div>
+      <span class="tag">Checklist gratuito</span>
+      <h1>Caça aos Ralos</h1>
+      <p class="hero-sub">Os 7 lugares por onde o dinheiro de quem trabalha com beleza escapa sem você perceber. Responda sim ou não e descubra quantos ralos estão abertos no seu trabalho.</p>
+      <a href="#ralos" class="btn btn-terracota">Começar a caça <span class="material-symbols-outlined">arrow_downward</span></a>
+      <div class="hero-features">
+        <span><span class="material-symbols-outlined">timer</span>3 minutos</span>
+        <span><span class="material-symbols-outlined">checklist</span>7 perguntas</span>
+        <span><span class="material-symbols-outlined">bolt</span>Resultado na hora</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="ralos">
+    <div class="container">
+      <p class="section-label">Como usar</p>
+      <div class="shimmer-line"></div>
+      <h2 class="section-headline">Cada "sim" é um ralo aberto no seu dinheiro</h2>
+      <p class="texto-medio">Responda com sinceridade, ninguém além de você vê as respostas. Depois de cada resposta, aparece o motivo de aquele ralo tirar dinheiro de você e o que fazer para fechá-lo ainda hoje.</p>
+
+      <div class="ralos">
+        <article class="ralo" data-id="r1" data-nome="Conta misturada">
+          <div class="ralo-topo"><span class="ralo-num">Ralo 1</span><span class="ralo-status"></span></div>
+          <h3 class="ralo-titulo">A conta misturada</h3>
+          <p class="ralo-pergunta">O dinheiro das clientes cai na mesma conta que paga as coisas de casa?</p>
+          <div class="respostas"><button class="resp" data-v="sim"><span class="material-symbols-outlined">check</span>Sim</button><button class="resp" data-v="nao"><span class="material-symbols-outlined">close</span>Não</button></div>
+          <div class="explica">
+            <p><strong>Por que tira dinheiro:</strong> conta misturada esconde o prejuízo até ele ficar grande demais para ignorar. O saldo parece dinheiro seu, mas parte dele já tem dono.</p>
+            <div class="fechar"><span class="material-symbols-outlined">construction</span><p><strong>Para fechar hoje:</strong> abra uma conta só para receber das clientes. Todo pagamento entra ali e toda despesa do trabalho sai dali. O <a href="/cada-real/?src=caca-aos-ralos">guia Cada Real no Seu Lugar</a> mostra o passo a passo.</p></div>
+          </div>
+        </article>
+
+        <article class="ralo" data-id="r2" data-nome="Retirada sem valor fixo">
+          <div class="ralo-topo"><span class="ralo-num">Ralo 2</span><span class="ralo-status"></span></div>
+          <h3 class="ralo-titulo">A retirada sem valor fixo</h3>
+          <p class="ralo-pergunta">Você tira dinheiro do trabalho conforme precisa, sem um valor definido?</p>
+          <div class="respostas"><button class="resp" data-v="sim"><span class="material-symbols-outlined">check</span>Sim</button><button class="resp" data-v="nao"><span class="material-symbols-outlined">close</span>Não</button></div>
+          <div class="explica">
+            <p><strong>Por que tira dinheiro:</strong> sem um salário fixo (o valor que você retira para você todo mês), você pode tirar mais do que o negócio aguenta e só perceber quando falta para repor produto.</p>
+            <div class="fechar"><span class="material-symbols-outlined">construction</span><p><strong>Para fechar hoje:</strong> defina um valor fixo por mês, baseado no que o seu trabalho consegue sustentar, e retire só ele.</p></div>
+          </div>
+        </article>
+
+        <article class="ralo" data-id="r3" data-nome="Preço que não paga tudo">
+          <div class="ralo-topo"><span class="ralo-num">Ralo 3</span><span class="ralo-status"></span></div>
+          <h3 class="ralo-titulo">O preço que não paga tudo</h3>
+          <p class="ralo-pergunta">Você não sabe se o preço do serviço que você mais faz cobre tudo o que ele precisa pagar?</p>
+          <div class="respostas"><button class="resp" data-v="sim"><span class="material-symbols-outlined">check</span>Sim</button><button class="resp" data-v="nao"><span class="material-symbols-outlined">close</span>Não</button></div>
+          <div class="explica">
+            <p><strong>Por que tira dinheiro:</strong> todo atendimento precisa pagar os custos (o produto que você usa), uma parte das despesas (aluguel, luz, internet), os impostos e as taxas e ainda deixar o dinheiro que fica para você, sem falar no lucro. Quase ninguém coloca tudo isso na conta, e o preço acaba pagando só uma parte.</p>
+            <div class="fechar"><span class="material-symbols-outlined">construction</span><p><strong>Para fechar hoje:</strong> pegue um serviço que você faz toda semana e anote o produto que ele usa, as taxas e o imposto. Divida as despesas do mês pelo número de atendimentos e some. Depois some o valor que você quer para você. Se o total passar do preço que você cobra, achou o ralo.</p></div>
+          </div>
+        </article>
+
+        <article class="ralo" data-id="r4" data-nome="Preço copiado">
+          <div class="ralo-topo"><span class="ralo-num">Ralo 4</span><span class="ralo-status"></span></div>
+          <h3 class="ralo-titulo">O preço copiado</h3>
+          <p class="ralo-pergunta">Seu preço foi definido olhando o preço da colega ou da concorrente?</p>
+          <div class="respostas"><button class="resp" data-v="sim"><span class="material-symbols-outlined">check</span>Sim</button><button class="resp" data-v="nao"><span class="material-symbols-outlined">close</span>Não</button></div>
+          <div class="explica">
+            <p><strong>Por que tira dinheiro:</strong> copiar o preço de outra pessoa ignora o seu custo, o seu tempo e a margem que você precisa para sobrar alguma coisa.</p>
+            <div class="fechar"><span class="material-symbols-outlined">construction</span><p><strong>Para fechar hoje:</strong> faça a conta do ralo 3 antes de comparar qualquer preço.</p></div>
+          </div>
+        </article>
+
+        <article class="ralo" data-id="r5" data-nome="Desconto">
+          <div class="ralo-topo"><span class="ralo-num">Ralo 5</span><span class="ralo-status"></span></div>
+          <h3 class="ralo-titulo">O desconto</h3>
+          <p class="ralo-pergunta">Neste mês você deu desconto, "arredondou para baixo" ou fez preço de amiga?</p>
+          <div class="respostas"><button class="resp" data-v="sim"><span class="material-symbols-outlined">check</span>Sim</button><button class="resp" data-v="nao"><span class="material-symbols-outlined">close</span>Não</button></div>
+          <div class="explica">
+            <p><strong>Por que tira dinheiro:</strong> o desconto sai inteiro do seu lucro. Exemplo: se um serviço de R$ 50 custa R$ 30 para ser feito, sobram R$ 20. Um desconto de R$ 10 leva metade do que você ganharia.</p>
+            <div class="fechar"><span class="material-symbols-outlined">construction</span><p><strong>Para fechar hoje:</strong> quando pedirem desconto, ofereça outra coisa no lugar, como um horário fixo ou um pacote, e mantenha o preço.</p></div>
+          </div>
+        </article>
+
+        <article class="ralo" data-id="r6" data-nome="Imposto não separado">
+          <div class="ralo-topo"><span class="ralo-num">Ralo 6</span><span class="ralo-status"></span></div>
+          <h3 class="ralo-titulo">O imposto que não é separado</h3>
+          <p class="ralo-pergunta">Você só pensa no imposto quando chega a hora de pagar?</p>
+          <div class="respostas"><button class="resp" data-v="sim"><span class="material-symbols-outlined">check</span>Sim</button><button class="resp" data-v="nao"><span class="material-symbols-outlined">close</span>Não</button></div>
+          <div class="explica">
+            <p><strong>Por que tira dinheiro:</strong> sem separar esse valor todo mês, o dinheiro do imposto se mistura com o resto e desaparece nas contas do dia a dia. Quando a cobrança chega, parece que o dinheiro sumiu.</p>
+            <div class="fechar"><span class="material-symbols-outlined">construction</span><p><strong>Para fechar hoje:</strong> separe o valor do imposto numa conta ou num potinho à parte, no mesmo dia em que o dinheiro entra.</p></div>
+          </div>
+        </article>
+
+        <article class="ralo" data-id="r7" data-nome="Taxas e parcelamento">
+          <div class="ralo-topo"><span class="ralo-num">Ralo 7</span><span class="ralo-status"></span></div>
+          <h3 class="ralo-titulo">As taxas e o parcelamento</h3>
+          <p class="ralo-pergunta">Você não sabe quanto pagou este mês de taxa de maquininha, parcelamento ou plataforma?</p>
+          <div class="respostas"><button class="resp" data-v="sim"><span class="material-symbols-outlined">check</span>Sim</button><button class="resp" data-v="nao"><span class="material-symbols-outlined">close</span>Não</button></div>
+          <div class="explica">
+            <p><strong>Por que tira dinheiro:</strong> a taxa sai de cada atendimento antes do dinheiro chegar em você, e o parcelamento tem um preço escondido que quase ninguém coloca na conta.</p>
+            <div class="fechar"><span class="material-symbols-outlined">construction</span><p><strong>Para fechar hoje:</strong> abra o extrato da maquininha do último mês e some as taxas.</p></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="resultado-section" id="resultado">
+    <div class="container scroll-reveal">
+      <p class="section-label">Seu resultado</p>
+      <div class="shimmer-line"></div>
+      <h2 class="section-headline">Quantos ralos estão abertos</h2>
+      <div class="placar" id="placar">
+        <div class="placar-num"><span class="n" id="numSim">0</span><span class="l" id="rotuloSim">ralos<br>abertos</span></div>
+        <div>
+          <h3 id="placarTitulo">Responda os 7 ralos acima</h3>
+          <p id="placarTexto">O seu resultado aparece aqui conforme você responde.</p>
+          <div class="abertos" id="abertos"></div>
+        </div>
+      </div>
+      <div class="faixas">
+        <div class="faixa" data-faixa="baixo"><b>0 ou 1 "sim"</b>Você já cuida bem do seu dinheiro. Continue de olho.</div>
+        <div class="faixa" data-faixa="medio"><b>2 a 4 "sim"</b>Já tem ralo aberto pesando no seu fim de mês.</div>
+        <div class="faixa" data-faixa="alto"><b>5 a 7 "sim"</b>O dinheiro está escapando por vários lados ao mesmo tempo.</div>
+      </div>
+      <div class="me-conta">
+        <p>Me conta no direct quantos "sim" você marcou.</p>
+        <a class="btn btn-contorno" href="https://ig.me/m/eu.gracygomes" target="_blank" rel="noopener"><span class="material-symbols-outlined">chat</span>Mandar no direct</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final-section" id="calculadora">
+    <div class="container scroll-reveal">
+      <p class="section-label">O próximo passo</p>
+      <h2>Você achou os ralos. Agora descubra quanto eles pesam no seu negócio.</h2>
+      <p>O checklist mostra onde estão os ralos. Para saber se eles já estão afetando o seu salário, os seus custos ou as suas despesas fixas, existe a <strong>Calculadora do Lucro Real</strong>.</p>
+      <p>É simples: você coloca 5 números que já tem (quanto entrou no mês, suas despesas, seus custos, os impostos e taxas e o valor que você retira para você) e ela analisa tudo de forma automática:</p>
+      <ul class="lista-calc">
+        <li><span class="material-symbols-outlined">check_circle</span>Se você está tendo lucro de verdade, com dinheiro sobrando no bolso, ou se está no prejuízo, trabalhando muito e ganhando pouco</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Se o seu salário está saudável para o que você fatura</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Se os seus custos estão altos e precisam ser revistos</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Se as suas despesas fixas estão pesando demais</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Ou se está tudo certo com o seu negócio</li>
+      </ul>
+      <a class="btn btn-terracota" href="https://calculadora-lucro-real-kappa.vercel.app/?src=caca-aos-ralos&amp;utm_source=instagram&amp;utm_medium=isca&amp;utm_campaign=caca-aos-ralos">Quero ter acesso à Calculadora <span class="material-symbols-outlined">arrow_forward</span></a>
+      <p class="frase">"Seu talento faz dinheiro entrar. Sua gestão faz ele ficar."</p>
+    </div>
+  </section>
+
+  <footer>Caça aos Ralos · Gracy Gomes · <a href="https://instagram.com/eu.gracygomes" target="_blank" rel="noopener">@eu.gracygomes</a></footer>
+
+  <div class="floating-cta"><a href="#resultado">Ver o meu resultado</a></div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+    const CHAVE = 'caca-aos-ralos-respostas';
+    let respostas = {};
+    try { respostas = JSON.parse(localStorage.getItem(CHAVE)) || {}; } catch (e) { respostas = {}; }
+    const ralos = document.querySelectorAll('.ralo');
+
+    function marcar(ralo, v) {
+      ralo.classList.remove('sim', 'nao');
+      if (v) ralo.classList.add(v);
+      ralo.querySelector('.ralo-status').textContent = v === 'sim' ? 'Ralo aberto' : v === 'nao' ? 'Fechado' : '';
+      ralo.querySelectorAll('.resp').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v));
+    }
+
+    function atualizar() {
+      const total = ralos.length;
+      const respondidos = [...ralos].filter(r => r.classList.contains('sim') || r.classList.contains('nao')).length;
+      const abertos = [...ralos].filter(r => r.classList.contains('sim'));
+      const n = abertos.length;
+      document.getElementById('barraTopo').style.width = (respondidos / total * 100) + '%';
+      document.getElementById('textoTopo').textContent = respondidos + ' de ' + total + ' respondidos';
+      document.getElementById('numSim').textContent = n;
+      document.getElementById('rotuloSim').innerHTML = n === 1 ? 'ralo<br>aberto' : 'ralos<br>abertos';
+
+      const placar = document.getElementById('placar');
+      placar.classList.remove('medio', 'alto');
+      let faixa = 'baixo', titulo, texto;
+      if (n >= 5) { faixa = 'alto'; placar.classList.add('alto'); }
+      else if (n >= 2) { faixa = 'medio'; placar.classList.add('medio'); }
+
+      if (respondidos < total) {
+        titulo = 'Faltam ' + (total - respondidos) + ' ralos para responder';
+        texto = 'O seu resultado vai se formando conforme você responde.';
+      } else if (faixa === 'baixo') {
+        titulo = 'Você já cuida bem do seu dinheiro';
+        texto = 'Continue de olho. Um ralo pequeno hoje pode crescer sem você perceber.';
+      } else if (faixa === 'medio') {
+        titulo = 'Já tem ralo aberto pesando no seu fim de mês';
+        texto = 'Comece fechando um ralo por semana, seguindo o "para fechar hoje" de cada um.';
+      } else {
+        titulo = 'O dinheiro está escapando por vários lados';
+        texto = 'Antes de trabalhar mais, vale descobrir quanto esses ralos já estão pesando no seu negócio.';
+      }
+      document.getElementById('placarTitulo').textContent = titulo;
+      document.getElementById('placarTexto').textContent = texto;
+      document.getElementById('abertos').innerHTML = abertos.map(r => '<span>' + r.dataset.nome + '</span>').join('');
+      document.querySelectorAll('.faixa').forEach(f => f.classList.toggle('ativa', respondidos === total && f.dataset.faixa === faixa));
+    }
+
+    ralos.forEach(ralo => {
+      marcar(ralo, respostas[ralo.dataset.id]);
+      ralo.querySelectorAll('.resp').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const v = btn.dataset.v;
+          respostas[ralo.dataset.id] = v;
+          try { localStorage.setItem(CHAVE, JSON.stringify(respostas)); } catch (e) {}
+          marcar(ralo, v);
+          atualizar();
+        });
+      });
+    });
+    atualizar();
+
+    const floatingCta = document.querySelector('.floating-cta');
+    const ralosSec = document.getElementById('ralos');
+    const resultado = document.getElementById('resultado');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      floatingCta.classList.toggle('visible', y > ralosSec.offsetTop && y < resultado.offsetTop - window.innerHeight);
+    }, { passive: true });
+  </script>
+</body>
+</html>

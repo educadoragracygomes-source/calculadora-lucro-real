@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia Prático Cada Real no Seu Lugar · Gracy Gomes</title>
+  <meta name="description" content="5 passos para separar o dinheiro de casa do dinheiro do trabalho em 7 dias. Guia gratuito para quem trabalha com beleza.">
+  <meta property="og:title" content="Guia Prático Cada Real no Seu Lugar">
+  <meta property="og:description" content="5 passos para separar o dinheiro de casa do dinheiro do trabalho em 7 dias.">
+  <meta name="theme-color" content="#0D3B2E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <style>
+    :root {
+      --nude: #F3E8E2;
+      --nude-escuro: #e8d5cb;
+      --verde: #1F7A63;
+      --verde-dark: #0D3B2E;
+      --verde-glow: rgba(31,122,99,0.15);
+      --verde-claro: #E6F1EC;
+      --lilas: #C8B6E2;
+      --lilas-dark: #9b84cc;
+      --terracota: #D97757;
+      --texto: #2B2B2B;
+      --texto-medio: #5a5a5a;
+      --texto-claro: #8a8a8a;
+      --branco: #ffffff;
+      --card: #FBF6F3;
+      --border: rgba(31,122,99,0.15);
+      --shadow: 0 4px 20px rgba(0,0,0,0.07);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.13);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', sans-serif; color: var(--texto); background: var(--nude);
+      line-height: 1.7; font-size: 17px; -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { font-family: 'Manrope', sans-serif; line-height: 1.2; letter-spacing: -0.02em; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .material-symbols-outlined { font-size: 22px; vertical-align: middle; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    @keyframes fadeUpIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes shimmer { 0%, 100% { opacity: 0.4; width: 60px; } 50% { opacity: 1; width: 90px; } }
+    @keyframes flutua { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    .scroll-reveal { opacity: 0; transform: translateY(32px); transition: all 0.7s ease; }
+    .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Header com progresso */
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,59,46,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      color: var(--branco); border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .header-inner { max-width: 760px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 800; font-size: 0.95rem; letter-spacing: 0.01em; white-space: nowrap; }
+    .brand-dot { color: var(--terracota); }
+    .progresso-mini { display: flex; align-items: center; gap: 10px; flex: 1; max-width: 260px; }
+    .progresso-mini .barra { flex: 1; height: 6px; background: rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; }
+    .progresso-mini .barra span { display: block; height: 100%; width: 0; background: var(--terracota); border-radius: 6px; transition: width 0.5s ease; }
+    .progresso-mini small { font-size: 0.78rem; opacity: 0.85; white-space: nowrap; }
+
+    /* Hero */
+    .hero {
+      position: relative; background-color: var(--verde-dark); color: var(--branco);
+      min-height: min(88vh, 720px); display: flex; align-items: center;
+      padding: 72px 0; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; background: url('capa.jpg') right center / cover no-repeat;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(90deg, rgba(13,59,46,0.96) 0%, rgba(13,59,46,0.88) 32%, rgba(13,59,46,0.35) 58%, rgba(13,59,46,0) 78%);
+    }
+    .hero-conteudo { position: relative; z-index: 1; max-width: 1120px; width: 100%; }
+    .hero-conteudo > * { max-width: 520px; }
+    .hero .hero-features { justify-content: flex-start; }
+    .tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 7px 14px; border-radius: 50px; background: rgba(200,182,226,0.18); color: var(--lilas); margin-bottom: 22px;
+    }
+    .hero h1 { font-size: clamp(2.4rem, 8vw, 3.6rem); font-weight: 800; animation: fadeUpIn 0.8s ease both; }
+    .hero h1 .destaque { color: var(--lilas); display: block; }
+    .hero-sub { font-size: 1.1rem; color: rgba(243,232,226,0.92); margin: 18px 0 30px; animation: fadeUpIn 0.8s 0.15s ease both; }
+    .potes { display: flex; justify-content: center; align-items: flex-start; gap: 10px; margin: 8px auto 34px; }
+    .pote { width: 92px; text-align: center; animation: flutua 4s ease-in-out infinite; }
+    .pote:nth-child(2) { animation-delay: 0.4s; } .pote:nth-child(3) { animation-delay: 0.8s; }
+    .pote:nth-child(4) { animation-delay: 1.2s; } .pote:nth-child(5) { animation-delay: 1.6s; }
+    .pote svg { width: 64px; height: 76px; margin: 0 auto 6px; }
+    .pote small { display: block; line-height: 1.25; min-height: 2.5em; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; color: rgba(243,232,226,0.85); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 50px;
+      font-weight: 800; font-size: 1.02rem; text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-terracota { background: var(--terracota); color: var(--branco); box-shadow: 0 6px 24px rgba(217,119,87,0.35); }
+    .btn-terracota:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(217,119,87,0.45); }
+    .hero-features { display: flex; justify-content: center; gap: 22px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-features span { display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; color: rgba(243,232,226,0.8); }
+    .hero-features .material-symbols-outlined { font-size: 18px; color: var(--lilas); }
+
+    /* Seções */
+    section { padding: 72px 0; }
+    .section-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracota); margin-bottom: 10px; }
+    .shimmer-line { width: 60px; height: 2px; background: linear-gradient(90deg, transparent, var(--verde), transparent); margin: 0 0 22px; border-radius: 2px; animation: shimmer 3s ease-in-out infinite; }
+    .section-headline { font-size: clamp(1.7rem, 5vw, 2.3rem); font-weight: 800; color: var(--verde-dark); margin-bottom: 18px; }
+    p + p { margin-top: 14px; }
+    .texto-medio { color: var(--texto-medio); }
+
+    /* Linha do tempo */
+    .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 26px; }
+    .timeline a {
+      text-decoration: none; background: var(--branco); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 14px 10px; text-align: center; transition: all 0.3s ease; box-shadow: var(--shadow);
+    }
+    .timeline a:hover { transform: translateY(-3px); border-color: var(--verde); }
+    .timeline .dia { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; color: var(--terracota); text-transform: uppercase; }
+    .timeline .nome { font-size: 0.86rem; font-weight: 700; color: var(--verde-dark); line-height: 1.3; margin-top: 4px; }
+    .timeline a.feito { background: var(--verde-claro); border-color: var(--verde); }
+    .timeline a.feito .dia::after { content: ' ✓'; color: var(--verde); }
+
+    /* Apresentação */
+    .autora { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: center; }
+    .autora img { width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow-lg); aspect-ratio: 3/4; object-fit: cover; }
+    .frase {
+      font-family: 'Nunito', sans-serif; font-style: italic; font-weight: 700; font-size: 1.15rem;
+      color: var(--verde); border-left: 3px solid var(--terracota); padding-left: 16px; margin-top: 22px;
+    }
+
+    /* Cards */
+    .cards { display: grid; gap: 16px; margin-top: 26px; }
+    .cards.c2 { grid-template-columns: repeat(2, 1fr); }
+    .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+    .card {
+      position: relative; background: var(--branco); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; transition: all 0.35s ease; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--verde), transparent); opacity: 0; transition: opacity 0.35s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .card:hover::before { opacity: 1; }
+    .card-icon {
+      width: 46px; height: 46px; border-radius: 12px; background: var(--verde-claro);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+    }
+    .card-icon .material-symbols-outlined { color: var(--verde); }
+    .card-icon.t { background: rgba(217,119,87,0.12); } .card-icon.t .material-symbols-outlined { color: var(--terracota); }
+    .card-icon.l { background: rgba(200,182,226,0.3); } .card-icon.l .material-symbols-outlined { color: var(--lilas-dark); }
+    .card h3 { font-size: 1.05rem; font-weight: 800; color: var(--verde-dark); margin-bottom: 6px; }
+    .card p { font-size: 0.95rem; color: var(--texto-medio); line-height: 1.65; }
+
+    /* Passos */
+    .passo { border-top: 1px solid var(--border); }
+    .passo.alt { background: var(--card); }
+    .passo-topo { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+    .passo-num {
+      flex-shrink: 0; width: 64px; height: 64px; border-radius: 18px;
+      background: var(--verde-dark); color: var(--branco); font-size: 1.9rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(13,59,46,0.25);
+    }
+    .passo-dias { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracota); }
+    .passo-topo h2 { font-size: clamp(1.5rem, 4.6vw, 2.1rem); font-weight: 800; color: var(--verde-dark); }
+    .sub { font-size: 1.12rem; font-weight: 800; color: var(--verde); margin: 30px 0 4px; }
+
+    .dica {
+      margin-top: 26px; background: var(--verde-claro); border-left: 4px solid var(--terracota);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 18px 20px; display: flex; gap: 12px;
+    }
+    .dica .material-symbols-outlined { color: var(--terracota); flex-shrink: 0; margin-top: 2px; }
+    .dica p { font-size: 0.97rem; }
+    .alerta { margin-top: 22px; background: var(--branco); border: 1px solid rgba(217,119,87,0.35); border-radius: var(--radius); padding: 22px; }
+    .alerta h3 { font-size: 1.05rem; color: var(--terracota); margin-bottom: 6px; display: flex; gap: 8px; align-items: center; }
+    .ponte {
+      margin-top: 22px; background: linear-gradient(135deg, rgba(200,182,226,0.45), rgba(200,182,226,0.2));
+      border-radius: var(--radius); padding: 22px; display: flex; gap: 14px; align-items: flex-start;
+    }
+    .ponte .material-symbols-outlined { color: var(--verde-dark); }
+    .ponte a { font-weight: 800; color: var(--verde-dark); }
+
+    /* Checklist interativo */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+    .check-item {
+      display: flex; align-items: center; gap: 14px; background: var(--branco); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: all 0.25s ease; user-select: none;
+    }
+    .check-item:hover { transform: translateX(4px); border-color: var(--verde); }
+    .check-icon {
+      width: 28px; height: 28px; border-radius: 8px; border: 2px solid var(--verde); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; transition: all 0.25s ease;
+    }
+    .check-icon .material-symbols-outlined { font-size: 18px; color: var(--branco); opacity: 0; transition: opacity 0.2s ease; }
+    .check-item.feito { background: var(--verde-claro); }
+    .check-item.feito .check-icon { background: var(--verde); }
+    .check-item.feito .check-icon .material-symbols-outlined { opacity: 1; }
+    .check-item.feito span.txt { color: var(--texto-medio); text-decoration: line-through; text-decoration-color: rgba(31,122,99,0.4); }
+    .check-item span.txt { font-size: 0.97rem; font-weight: 600; }
+
+    /* Tabelas */
+    .tabela-wrap { margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--branco); }
+    .tabela-titulo { background: var(--verde); color: var(--branco); padding: 12px 18px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th { text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--texto-claro); padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    td { padding: 11px 14px; border-bottom: 1px solid rgba(31,122,99,0.08); }
+    td.v { text-align: right; white-space: nowrap; font-weight: 700; }
+    td.entra { color: var(--verde); } td.sai { color: var(--terracota); }
+    tr.total td { background: var(--verde-claro); font-weight: 800; color: var(--verde-dark); border-bottom: none; }
+    .resultado { margin-top: 12px; font-size: 0.97rem; }
+    .resultado strong { color: var(--verde-dark); }
+    .ficticio { font-size: 0.82rem; color: var(--texto-claro); margin-top: 6px; }
+
+    /* Destinos (passo 4) */
+    .destinos { counter-reset: d; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+    .destino { display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: center; background: var(--branco); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; }
+    .destino svg { width: 48px; height: 58px; }
+    .destino h3 { font-size: 1.02rem; color: var(--verde-dark); font-weight: 800; }
+    .destino p { font-size: 0.93rem; color: var(--texto-medio); line-height: 1.6; }
+
+    /* Conquista */
+    .conquista { text-align: center; }
+    .conquista .section-headline { margin-top: 6px; }
+    .selo-7 {
+      width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--verde); margin: 0 auto 18px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--branco);
+    }
+    .selo-7 .n { font-size: 2.6rem; font-weight: 800; color: var(--verde); line-height: 1; }
+    .selo-7 .l { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--texto-claro); }
+    .conquista .cards { text-align: left; }
+    .btn-contorno { background: transparent; color: var(--verde-dark); border: 2px solid var(--verde-dark); margin-top: 26px; }
+    .btn-contorno:hover { background: var(--verde-dark); color: var(--branco); }
+
+    /* CTA final */
+    .cta-final-section {
+      background-color: var(--verde-dark);
+      background-image: radial-gradient(at 80% 10%, rgba(31,122,99,0.6) 0px, transparent 55%), radial-gradient(at 10% 90%, rgba(217,119,87,0.14) 0px, transparent 50%);
+      color: var(--branco);
+    }
+    .cta-final-section .section-label { color: var(--lilas); }
+    .cta-final-section h2 { font-size: clamp(1.8rem, 5.4vw, 2.5rem); font-weight: 800; margin-bottom: 16px; }
+    .cta-final-section p { color: rgba(243,232,226,0.88); }
+    .lista-calc { list-style: none; margin: 22px 0 30px; display: flex; flex-direction: column; gap: 12px; }
+    .lista-calc li { display: flex; gap: 12px; align-items: flex-start; }
+    .lista-calc .material-symbols-outlined { color: var(--terracota); font-size: 22px; }
+    .cta-final-section .frase { color: var(--lilas); border-color: var(--terracota); margin-top: 34px; }
+
+    footer { text-align: center; padding: 28px 20px 96px; font-size: 0.85rem; color: var(--texto-claro); }
+
+    /* CTA flutuante (mobile) */
+    .floating-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; padding: 12px 16px;
+      background: rgba(13,59,46,0.96); backdrop-filter: blur(20px); border-top: 1px solid rgba(255,255,255,0.08);
+      display: none; transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .floating-cta.visible { transform: translateY(0); }
+    .floating-cta a { display: block; padding: 15px; text-align: center; background: var(--terracota); color: #fff; font-weight: 800; border-radius: 50px; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .hero { display: block; min-height: 0; padding: 48px 0 330px; text-align: center; }
+      .hero-bg {
+        top: auto; height: 380px;
+        background:
+          linear-gradient(180deg, rgba(13,59,46,1) 0%, rgba(13,59,46,0.75) 18%, rgba(13,59,46,0) 45%),
+          url('capa.jpg') 82% center / cover no-repeat;
+      }
+      .hero::after { display: none; }
+      .hero-conteudo > * { margin-left: auto; margin-right: auto; }
+      .hero .hero-features { justify-content: center; }
+      section { padding: 60px 0; }
+      .cards.c2, .cards.c3 { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: repeat(5, minmax(96px, 1fr)); overflow-x: auto; padding-bottom: 6px; }
+      .autora { grid-template-columns: 1fr; text-align: left; }
+      .autora img { max-width: 240px; }
+      .floating-cta { display: block; }
+    }
+    @media (min-width: 769px) { .floating-cta { display: none !important; } footer { padding-bottom: 28px; } }
+    @media (max-width: 480px) {
+      body { font-size: 16px; }
+      .pote { width: 58px; } .pote svg { width: 46px; height: 56px; } .pote small { font-size: 0.64rem; }
+      .progresso-mini small { display: none; }
+      td, th { padding: 9px 10px; } table { font-size: 0.86rem; }
+      .passo-num { width: 54px; height: 54px; font-size: 1.6rem; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Símbolo do pote (reutilizado) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="pote" viewBox="0 0 64 76">
+        <rect x="14" y="2" width="36" height="10" rx="3" fill="currentColor" opacity="0.9"/>
+        <path d="M10 16 Q10 12 14 12 H50 Q54 12 54 16 V66 Q54 74 46 74 H18 Q10 74 10 66 Z" fill="currentColor" opacity="0.28"/>
+        <path d="M10 40 H54 V66 Q54 74 46 74 H18 Q10 74 10 66 Z" fill="currentColor"/>
+        <circle cx="24" cy="50" r="5" fill="#fff" opacity="0.55"/>
+        <circle cx="38" cy="56" r="5" fill="#fff" opacity="0.4"/>
+        <circle cx="30" cy="64" r="4" fill="#fff" opacity="0.35"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">Gracy Gomes<span class="brand-dot">.</span></div>
+      <div class="progresso-mini" aria-label="Seu progresso">
+        <div class="barra"><span id="barraTopo"></span></div>
+        <small id="textoTopo">0 de 0 tarefas</small>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg" role="img" aria-label="Profissional da beleza separando dinheiro em duas caixinhas: pessoal e trabalho"></div>
+    <div class="container hero-conteudo">
+      <span class="tag">Guia prático gratuito</span>
+      <h1>Cada Real <span class="destaque">no Seu Lugar</span></h1>
+      <p class="hero-sub">5 passos para separar o dinheiro de casa do dinheiro do trabalho em 7 dias. Feito para quem trabalha com beleza e não tem tempo a perder.</p>
+      <a href="#comecar" class="btn btn-terracota">Começar agora <span class="material-symbols-outlined">arrow_downward</span></a>
+      <div class="hero-features">
+        <span><span class="material-symbols-outlined">calendar_month</span>7 dias</span>
+        <span><span class="material-symbols-outlined">schedule</span>Poucos minutos por dia</span>
+        <span><span class="material-symbols-outlined">task_alt</span>Marque o seu progresso</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAPA -->
+  <section id="comecar">
+    <div class="container scroll-reveal">
+      <p class="section-label">O seu caminho</p>
+      <div class="shimmer-line"></div>
+      <h2 class="section-headline">O que você vai fazer em 7 dias</h2>
+      <p class="texto-medio">Cada passo tem tarefas para marcar. O seu progresso fica salvo neste celular, então você pode parar e voltar quando quiser.</p>
+      <nav class="timeline" aria-label="Passos do guia">
+        <a href="#passo1" data-passo="1"><div class="dia">Dias 1 e 2</div><div class="nome">Duas contas</div></a>
+        <a href="#passo2" data-passo="2"><div class="dia">Dia 3</div><div class="nome">Anotar tudo</div></a>
+        <a href="#passo3" data-passo="3"><div class="dia">Dia 4</div><div class="nome">Seu salário</div></a>
+        <a href="#passo4" data-passo="4"><div class="dia">Dias 5 e 6</div><div class="nome">Destino do dinheiro</div></a>
+        <a href="#passo5" data-passo="5"><div class="dia">Dia 7</div><div class="nome">Revisão semanal</div></a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- APRESENTAÇÃO -->
+  <section class="passo alt">
+    <div class="container autora scroll-reveal">
+      <img src="gracy.jpg" alt="Gracy Gomes, educadora financeira" width="720" height="960" loading="lazy">
+      <div>
+        <p class="section-label">Quem está com você</p>
+        <h2 class="section-headline">Oi, eu sou a Gracy Gomes</h2>
+        <p>Sou educadora financeira e ajudo mulheres que trabalham com beleza a organizar o dinheiro de um jeito prático, que cabe na correria dos atendimentos.</p>
+        <p>Já vivi de perto a realidade de misturar o dinheiro pessoal com o do trabalho, e sei a confusão que isso traz: o dinheiro entra, você trabalha o mês inteiro e, no fim, não sabe dizer para onde ele foi.</p>
+        <p>Este guia é o primeiro passo para mudar isso. Em 7 dias, cada real que entra no seu trabalho passa a ter um lugar certo.</p>
+        <p class="frase">"Seu talento faz dinheiro entrar. Sua gestão faz ele ficar."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE SOME -->
+  <section class="passo">
+    <div class="container scroll-reveal">
+      <p class="section-label">Antes de começar</p>
+      <div class="shimmer-line"></div>
+      <h2 class="section-headline">Por que o dinheiro some quando está tudo junto</h2>
+      <p>Quando o dinheiro das clientes e o dinheiro de casa caem no mesmo lugar, o saldo da conta parece todo seu. Só que parte dele já tem dono: o produto que precisa ser reposto, o aluguel da cadeira, o imposto, a taxa da maquininha.</p>
+      <p>Aí você paga o mercado, a conta de luz de casa e aquele gasto que apareceu, achando que sobrou. No fim do mês, falta dinheiro para repor o material ou pagar o imposto, e a sensação é de que o dinheiro evaporou.</p>
+      <p><strong>Ele não evaporou. Ele foi gasto duas vezes na sua cabeça:</strong> uma como dinheiro do trabalho e outra como dinheiro de casa.</p>
+      <div class="cards c3">
+        <div class="card"><div class="card-icon t"><span class="material-symbols-outlined">sentiment_stressed</span></div><h3>O que acontece hoje</h3><p>Você fatura, gasta, e não sabe se o seu trabalho dá lucro ou se o dinheiro só está passando pela sua conta.</p></div>
+        <div class="card"><div class="card-icon l"><span class="material-symbols-outlined">call_split</span></div><h3>Por que acontece</h3><p>Com tudo junto, não dá para enxergar dois números diferentes: o que o trabalho gera e o que você gasta para viver.</p></div>
+        <div class="card"><div class="card-icon"><span class="material-symbols-outlined">verified</span></div><h3>O que muda em 7 dias</h3><p>Cada dinheiro vai para o lugar dele, você passa a ter um salário definido e consegue ver o que sobra de verdade.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASSO 1 -->
+  <section class="passo alt" id="passo1">
+    <div class="container scroll-reveal">
+      <div class="passo-topo">
+        <div class="passo-num">1</div>
+        <div><div class="passo-dias">Passo 1 de 5 · Dias 1 e 2</div><h2>Abra duas contas separadas</h2></div>
+      </div>
+      <p>O primeiro passo é ter dois lugares diferentes para o dinheiro.</p>
+      <div class="cards c2">
+        <div class="card"><div class="card-icon l"><span class="material-symbols-outlined">home</span></div><h3>Conta pessoal</h3><p>Para a sua vida: casa, mercado, escola, lazer. É para onde vai o seu salário do trabalho.</p></div>
+        <div class="card"><div class="card-icon"><span class="material-symbols-outlined">content_cut</span></div><h3>Conta do trabalho</h3><p>Só para o seu trabalho com beleza. Pode ser uma conta PJ (se você tem CNPJ ou é MEI) ou uma segunda conta pessoal usada apenas para o trabalho.</p></div>
+      </div>
+      <p style="margin-top:22px">No momento em que o dinheiro fica separado, você ganha uma resposta que não tinha antes: quanto o seu trabalho realmente movimenta.</p>
+      <h3 class="sub">Onde abrir</h3>
+      <p>Os bancos digitais permitem abrir conta pelo celular, sem ir à agência. Algumas opções conhecidas com conta para pessoa física e jurídica: <strong>Nubank</strong>, <strong>Banco Inter</strong> e <strong>C6 Bank</strong>.</p>
+      <div class="dica"><span class="material-symbols-outlined">lightbulb</span><p><strong>Dica da Gracy:</strong> cadastre a chave Pix e a maquininha na conta do trabalho. Assim, todo pagamento de cliente cai automaticamente no lugar certo, e você não precisa lembrar de transferir.</p></div>
+      <h3 class="sub">Marque o que você já fez</h3>
+      <ul class="checklist" data-passo="1">
+        <li class="check-item" data-id="p1-1"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Escolhi o banco da minha conta do trabalho</span></li>
+        <li class="check-item" data-id="p1-2"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Abri a conta do trabalho e enviei os documentos</span></li>
+        <li class="check-item" data-id="p1-3"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Cadastrei a chave Pix do trabalho</span></li>
+        <li class="check-item" data-id="p1-4"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Liguei a maquininha à conta do trabalho</span></li>
+        <li class="check-item" data-id="p1-5"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Decidi que todo dinheiro das clientes entra só na conta do trabalho</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PASSO 2 -->
+  <section class="passo" id="passo2">
+    <div class="container scroll-reveal">
+      <div class="passo-topo">
+        <div class="passo-num">2</div>
+        <div><div class="passo-dias">Passo 2 de 5 · Dia 3</div><h2>Anote tudo o que entra e sai</h2></div>
+      </div>
+      <p>Com as contas separadas, é hora de anotar cada movimento. Escolha o jeito que for mais fácil para você manter:</p>
+      <div class="cards c3">
+        <div class="card"><div class="card-icon t"><span class="material-symbols-outlined">menu_book</span></div><h3>Caderno</h3><p>Simples e sempre à mão, até na bancada.</p></div>
+        <div class="card"><div class="card-icon"><span class="material-symbols-outlined">table_chart</span></div><h3>Planilha</h3><p>No Google Planilhas ou no Excel.</p></div>
+        <div class="card"><div class="card-icon l"><span class="material-symbols-outlined">smartphone</span></div><h3>Aplicativo</h3><p>Mobills e Organizze, por exemplo, deixam criar categorias separadas.</p></div>
+      </div>
+      <h3 class="sub">O segredo é separar em 4 grupos</h3>
+      <div class="cards c2">
+        <div class="card"><div class="card-icon"><span class="material-symbols-outlined">trending_up</span></div><h3>Entradas do trabalho</h3><p>Atendimentos, venda de produto, manutenção de cílios ou de unha em gel.</p></div>
+        <div class="card"><div class="card-icon t"><span class="material-symbols-outlined">shopping_bag</span></div><h3>Saídas do trabalho</h3><p>Esmalte, gel, cílios, tintura, descartáveis, aluguel da cadeira ou da sala, taxa da maquininha, imposto, cursos.</p></div>
+        <div class="card"><div class="card-icon l"><span class="material-symbols-outlined">savings</span></div><h3>Entradas pessoais</h3><p>O seu salário (a transferência do trabalho para você) e outras rendas da família.</p></div>
+        <div class="card"><div class="card-icon t"><span class="material-symbols-outlined">shopping_cart</span></div><h3>Saídas pessoais</h3><p>Mercado, aluguel ou financiamento da casa, contas de casa, escola, lazer.</p></div>
+      </div>
+
+      <h3 class="sub">Como fica na prática</h3>
+      <p class="texto-medio">Um exemplo de uma semana, com números fictícios, só para você entender o modelo.</p>
+      <div class="tabela-wrap">
+        <div class="tabela-titulo"><span class="material-symbols-outlined">content_cut</span>Conta do trabalho</div>
+        <table>
+          <thead><tr><th>Data</th><th>Descrição</th><th style="text-align:right">Valor</th></tr></thead>
+          <tbody>
+            <tr><td>02/10</td><td>Atendimentos do dia</td><td class="v entra">+ R$ 380,00</td></tr>
+            <tr><td>03/10</td><td>Atendimentos do dia</td><td class="v entra">+ R$ 420,00</td></tr>
+            <tr><td>03/10</td><td>Reposição de esmalte e gel</td><td class="v sai">− R$ 150,00</td></tr>
+            <tr><td>04/10</td><td>Taxa da maquininha</td><td class="v sai">− R$ 24,00</td></tr>
+            <tr class="total"><td></td><td>Fica no trabalho</td><td class="v">R$ 626,00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="resultado">Esses <strong>R$ 626,00</strong> ficam na conta do trabalho até o dia do seu salário, porque ainda vão pagar aluguel, imposto e outras despesas do mês.</p>
+      <div class="tabela-wrap" style="margin-top:22px">
+        <div class="tabela-titulo" style="background:var(--lilas-dark)"><span class="material-symbols-outlined">home</span>Conta pessoal</div>
+        <table>
+          <thead><tr><th>Data</th><th>Descrição</th><th style="text-align:right">Valor</th></tr></thead>
+          <tbody>
+            <tr><td>05/10</td><td>Salário recebido do trabalho</td><td class="v entra">+ R$ 1.500,00</td></tr>
+            <tr><td>05/10</td><td>Outras rendas da família</td><td class="v entra">+ R$ 2.000,00</td></tr>
+            <tr><td>06/10</td><td>Mercado do mês</td><td class="v sai">− R$ 650,00</td></tr>
+            <tr><td>10/10</td><td>Aluguel da casa</td><td class="v sai">− R$ 1.200,00</td></tr>
+            <tr class="total"><td></td><td>Disponível para o mês</td><td class="v">R$ 1.650,00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ficticio">Números fictícios, apenas para exemplo.</p>
+      <div class="dica"><span class="material-symbols-outlined">lightbulb</span><p><strong>Dica da Gracy:</strong> repare que o dinheiro do trabalho só entra na conta pessoal uma vez, como salário. É isso que acaba com a confusão. E anote no fim de cada dia de atendimento, enquanto ainda lembra de tudo: leva 5 minutos.</p></div>
+      <h3 class="sub">Marque o que você já fez</h3>
+      <ul class="checklist" data-passo="2">
+        <li class="check-item" data-id="p2-1"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Escolhi onde vou anotar (caderno, planilha ou aplicativo)</span></li>
+        <li class="check-item" data-id="p2-2"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Criei os 4 grupos: entradas e saídas do trabalho, entradas e saídas pessoais</span></li>
+        <li class="check-item" data-id="p2-3"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Anotei tudo o que entrou e saiu hoje</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PASSO 3 -->
+  <section class="passo alt" id="passo3">
+    <div class="container scroll-reveal">
+      <div class="passo-topo">
+        <div class="passo-num">3</div>
+        <div><div class="passo-dias">Passo 3 de 5 · Dia 4</div><h2>Defina o seu salário</h2></div>
+      </div>
+      <p>Muitas profissionais da beleza caem na armadilha de tirar dinheiro do trabalho quando precisam. Isso gera instabilidade: tem mês que você tira demais e falta para o material, tem mês que você não tira nada e vive no aperto.</p>
+      <p>Por isso você precisa de um <strong>salário</strong>: um valor fixo que você retira para você todo mês, transferido da conta do trabalho para a conta pessoal.</p>
+      <h3 class="sub">Como definir o valor certo: 3 perguntas</h3>
+      <div class="cards">
+        <div class="card"><div class="card-icon l"><span class="material-symbols-outlined">home_work</span></div><h3>1. Quanto custa a sua vida?</h3><p>Some o que você precisa por mês para viver: casa, mercado, contas, transporte etc. Esse é o ponto de partida.</p></div>
+        <div class="card"><div class="card-icon t"><span class="material-symbols-outlined">workspace_premium</span></div><h3>2. Quanto vale o seu trabalho no mercado?</h3><p>Pense em quanto se paga a uma profissional que faz o que você faz, com a sua experiência. O seu salário deve reconhecer esse valor.</p></div>
+        <div class="card"><div class="card-icon"><span class="material-symbols-outlined">account_balance</span></div><h3>3. Quanto o seu negócio aguenta pagar?</h3><p>Com o seu custo de vida e o valor do seu trabalho em mãos, veja se o seu negócio consegue pagar esse salário depois de pagar custos, despesas, impostos e taxas. Um negócio que está começando, por exemplo, muitas vezes ainda não consegue.</p><p>Imagine que o seu trabalho vale R$ 5.000 por mês, mas o negócio só aguenta pagar R$ 2.000. Se você retirar os R$ 5.000, o negócio quebra. Por um tempo, o seu salário fica nos R$ 2.000, enquanto você trabalha para mudar esse número.</p></div>
+      </div>
+      <p style="margin-top:22px"><strong>O salário saudável fica o mais perto possível das duas primeiras respostas, sem passar da terceira.</strong></p>
+      <div class="alerta">
+        <h3><span class="material-symbols-outlined">priority_high</span>E se o negócio não aguenta pagar o seu custo de vida?</h3>
+        <p>Esse é um sinal importante. A solução não é tirar mais do trabalho, e sim rever o preço dos serviços, os custos ou as despesas fixas. Tirar mais do que o negócio aguenta só empurra o problema para o mês seguinte.</p>
+      </div>
+      <div class="dica"><span class="material-symbols-outlined">lightbulb</span><p><strong>Dica da Gracy:</strong> escolha um dia fixo do mês para transferir o seu salário, como se fosse o seu dia de pagamento. Comece pelo valor que o negócio aguenta hoje e ajuste quando os números melhorarem.</p></div>
+      <div class="ponte"><span class="material-symbols-outlined">calculate</span><p><strong>Quer saber se o seu salário está saudável?</strong> A Calculadora do Lucro Real compara o valor que você retira com o que você fatura e te mostra se ele está saudável para o seu negócio. <a href="#calculadora">Veja no final do guia</a>.</p></div>
+      <h3 class="sub">Marque o que você já fez</h3>
+      <ul class="checklist" data-passo="3">
+        <li class="check-item" data-id="p3-1"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Somei o meu custo de vida do mês</span></li>
+        <li class="check-item" data-id="p3-2"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Defini o valor do meu salário</span></li>
+        <li class="check-item" data-id="p3-3"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Escolhi o meu dia de pagamento</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PASSO 4 -->
+  <section class="passo" id="passo4">
+    <div class="container scroll-reveal">
+      <div class="passo-topo">
+        <div class="passo-num">4</div>
+        <div><div class="passo-dias">Passo 4 de 5 · Dias 5 e 6</div><h2>Dê um destino para cada real</h2></div>
+      </div>
+      <p>Agora que o dinheiro está separado e o seu salário está definido, cada real que entra na conta do trabalho precisa saber para onde vai. Em vez de uma porcentagem fixa, que não serve para todo mundo, siga esta ordem:</p>
+      <div class="destinos">
+        <div class="destino"><svg style="color:#1F7A63"><use href="#pote"/></svg><div><h3>1. Custos</h3><p>O produto que cada atendimento consome: esmalte, gel, cílios, tintura, descartáveis. Reponha antes que acabe.</p></div></div>
+        <div class="destino"><svg style="color:#9b84cc"><use href="#pote"/></svg><div><h3>2. Despesas fixas</h3><p>O que você paga todo mês, atendendo muito ou pouco: aluguel da cadeira ou da sala, luz, internet, aplicativo de agenda.</p></div></div>
+        <div class="destino"><svg style="color:#D97757"><use href="#pote"/></svg><div><h3>3. Impostos e taxas</h3><p>Separe no mesmo dia em que o dinheiro entra: o imposto (como o DAS do MEI) e as taxas de maquininha, parcelamento e plataformas.</p></div></div>
+        <div class="destino"><svg style="color:#e8d5cb"><use href="#pote"/></svg><div><h3>4. Seu salário</h3><p>O valor que você definiu no passo 3, transferido no seu dia de pagamento.</p></div></div>
+        <div class="destino"><svg style="color:#0D3B2E"><use href="#pote"/></svg><div><h3>5. O que sobra</h3><p>Esse é o lucro do seu trabalho. Use para montar uma reserva para imprevistos e para investir no seu crescimento, como um curso ou um equipamento.</p></div></div>
+      </div>
+      <div class="dica"><span class="material-symbols-outlined">lightbulb</span><p><strong>Dica da Gracy:</strong> a maioria dos bancos digitais permite criar reservas separadas dentro da mesma conta. Crie uma para o imposto e outra para a reserva. Dinheiro separado não se mistura.</p></div>
+      <p style="margin-top:22px">E na conta pessoal? Defina um limite para os gastos da casa dentro do seu salário. Se o salário acabar antes do mês, a resposta é ajustar os gastos de casa, e não buscar dinheiro na conta do trabalho.</p>
+      <h3 class="sub">Marque o que você já fez</h3>
+      <ul class="checklist" data-passo="4">
+        <li class="check-item" data-id="p4-1"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Criei uma reserva separada para o imposto</span></li>
+        <li class="check-item" data-id="p4-2"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Criei uma reserva para imprevistos</span></li>
+        <li class="check-item" data-id="p4-3"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Defini um limite para os gastos de casa</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PASSO 5 -->
+  <section class="passo alt" id="passo5">
+    <div class="container scroll-reveal">
+      <div class="passo-topo">
+        <div class="passo-num">5</div>
+        <div><div class="passo-dias">Passo 5 de 5 · Dia 7</div><h2>Crie a sua revisão semanal</h2></div>
+      </div>
+      <p>Para a organização continuar viva, escolha um momento fixo da semana (por exemplo, segunda-feira à noite) e reserve 15 minutos para:</p>
+      <ul class="checklist" data-passo="5">
+        <li class="check-item" data-id="p5-1"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Conferir tudo o que entrou e saiu na semana</span></li>
+        <li class="check-item" data-id="p5-2"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Ver se nenhum gasto de casa saiu da conta do trabalho</span></li>
+        <li class="check-item" data-id="p5-3"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Separar o dinheiro do imposto e das taxas, se ainda não separei</span></li>
+        <li class="check-item" data-id="p5-4"><span class="check-icon"><span class="material-symbols-outlined">check</span></span><span class="txt">Ajustar o que for preciso para a semana seguinte</span></li>
+      </ul>
+      <div class="dica"><span class="material-symbols-outlined">alarm</span><p><strong>Dica da Gracy:</strong> coloque um alarme no celular com o nome "Minha revisão". Quinze minutos por semana evitam horas de preocupação no fim do mês.</p></div>
+    </div>
+  </section>
+
+  <!-- CONQUISTA -->
+  <section class="conquista">
+    <div class="container scroll-reveal">
+      <div class="selo-7"><span class="n">7</span><span class="l">dias</span></div>
+      <p class="section-label">Você chegou ao dia 7</p>
+      <h2 class="section-headline">O que muda na sua vida</h2>
+      <div class="cards c3">
+        <div class="card"><div class="card-icon"><span class="material-symbols-outlined">call_split</span></div><h3>Você sabe o que é seu e o que é do trabalho</h3><p>Cada dinheiro tem uma conta e um destino.</p></div>
+        <div class="card"><div class="card-icon t"><span class="material-symbols-outlined">event_available</span></div><h3>Você tem um salário</h3><p>Todo mês, no mesmo dia, sem tirar no susto.</p></div>
+        <div class="card"><div class="card-icon l"><span class="material-symbols-outlined">visibility</span></div><h3>Você enxerga o que sobra</h3><p>E pode usar esse dinheiro para crescer.</p></div>
+      </div>
+      <a class="btn btn-contorno" href="https://ig.me/m/eu.gracygomes" target="_blank" rel="noopener"><span class="material-symbols-outlined">chat</span>Me conta qual passo foi o mais difícil</a>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final-section" id="calculadora">
+    <div class="container scroll-reveal">
+      <p class="section-label">O próximo passo</p>
+      <h2>Você separou o dinheiro. Agora descubra se o seu trabalho dá lucro.</h2>
+      <p>Separar as contas mostra para onde o dinheiro vai. A próxima pergunta é: o que entra está pagando tudo e ainda sobrando?</p>
+      <p>A <strong>Calculadora do Lucro Real</strong> responde isso. É simples: você coloca 5 números que já tem (quanto entrou no mês, suas despesas, seus custos, os impostos e taxas e o valor que você retira para você) e ela analisa tudo de forma automática:</p>
+      <ul class="lista-calc">
+        <li><span class="material-symbols-outlined">check_circle</span>Se você está tendo lucro de verdade, com dinheiro sobrando no bolso, ou se está no prejuízo, trabalhando muito e ganhando pouco</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Se o seu salário está saudável para o que você fatura</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Se os seus custos estão altos e precisam ser revistos</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Se as suas despesas fixas estão pesando demais</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Ou se está tudo certo com o seu negócio</li>
+      </ul>
+      <a class="btn btn-terracota" href="https://calculadora-lucro-real-kappa.vercel.app/?src=guia-cada-real&amp;utm_source=instagram&amp;utm_medium=isca&amp;utm_campaign=guia-cada-real">Quero ter acesso à Calculadora <span class="material-symbols-outlined">arrow_forward</span></a>
+      <p class="frase">"Agenda cheia não paga boleto. Gestão sim."</p>
+    </div>
+  </section>
+
+  <footer>Guia Prático Cada Real no Seu Lugar · Gracy Gomes · <a href="https://instagram.com/eu.gracygomes" target="_blank" rel="noopener">@eu.gracygomes</a></footer>
+
+  <div class="floating-cta"><a href="#calculadora">Conhecer a Calculadora do Lucro Real</a></div>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+    // Checklist com progresso salvo no aparelho
+    const CHAVE = 'cada-real-progresso';
+    let salvo = {};
+    try { salvo = JSON.parse(localStorage.getItem(CHAVE)) || {}; } catch (e) { salvo = {}; }
+    const itens = document.querySelectorAll('.check-item');
+
+    function atualizar() {
+      const total = itens.length;
+      const feitos = [...itens].filter(i => i.classList.contains('feito')).length;
+      document.getElementById('barraTopo').style.width = (feitos / total * 100) + '%';
+      document.getElementById('textoTopo').textContent = feitos + ' de ' + total + ' tarefas';
+      document.querySelectorAll('.checklist').forEach(lista => {
+        const todos = lista.querySelectorAll('.check-item');
+        const ok = [...todos].every(i => i.classList.contains('feito'));
+        const link = document.querySelector('.timeline a[data-passo="' + lista.dataset.passo + '"]');
+        if (link) link.classList.toggle('feito', ok);
+      });
+    }
+
+    itens.forEach(item => {
+      if (salvo[item.dataset.id]) item.classList.add('feito');
+      item.setAttribute('role', 'checkbox');
+      item.setAttribute('tabindex', '0');
+      const alternar = () => {
+        item.classList.toggle('feito');
+        salvo[item.dataset.id] = item.classList.contains('feito');
+        item.setAttribute('aria-checked', salvo[item.dataset.id]);
+        try { localStorage.setItem(CHAVE, JSON.stringify(salvo)); } catch (e) {}
+        atualizar();
+      };
+      item.addEventListener('click', alternar);
+      item.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); alternar(); } });
+    });
+    atualizar();
+
+    // CTA flutuante: aparece a partir do passo 3 e some perto do final
+    const floatingCta = document.querySelector('.floating-cta');
+    const ctaFinal = document.querySelector('.cta-final-section');
+    const passo3 = document.getElementById('passo3');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      const mostrar = y > passo3.offsetTop - 200 && y < ctaFinal.offsetTop - window.innerHeight;
+      floatingCta.classList.toggle('visible', mostrar);
+    }, { passive: true });
+  </script>
+</body>
+</html>
